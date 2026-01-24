@@ -1,0 +1,37 @@
+module FIFO #(width = 8 , dipth = 32)(
+    input   clk,
+    input   rst,
+    input   rd,wr,
+    input   [width-1 : 0] din,
+    output  full, empty,
+    output  [width-1 : 0] reg dout
+);
+    parameter addr_width = $clog2(dipth);
+    reg [width-1 : 0] mem [dipth-1 : 0];
+    reg [addr_width-1 : 0] wrptr, rdptr;
+
+    always_ff @(posedge clk) begin
+        if (rst) begin
+            wrptr <= 0;
+            rdptr <= 0;
+            for (int i = 0 ; i<(dipth-1) ; i++) begin
+                mem[i] <= 0;
+            end
+        end
+        else begin
+            if (wr == 1 && full != 1) begin
+                mem[wrptr] <= din;
+                wrptr <= wrptr + 1;
+            end
+            if (rd == 1 && empty != 1) begin
+                dout  <= mem[rdptr];
+                rdptr <= rdptr + 1;
+            end     
+        end
+            
+    end
+    
+    assign empty = ((wrptr-rdptr) == 0 )  ? 1'b1 : 1'b0;
+    assign empty = ((wrptr-rdptr) == 31 ) ? 1'b1 : 1'b0;
+endmodule
+    

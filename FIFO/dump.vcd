@@ -1,0 +1,31 @@
+$date
+	Fri Jan 23 00:14:37 2026
+$end
+$version
+	QuestaSim Version 10.6c
+$end
+$timescale
+	1ps
+$end
+
+$scope module FIFO_tb $end
+
+$scope module FIFO_instance $end
+$upscope $end
+$upscope $end
+
+$scope begin FIFO_tb_sv_unit $end
+$var parameter 32 ! width $end
+$var parameter 32 " dipth $end
+$var integer 32 # clk_period $end
+$upscope $end
+
+$scope begin std $end
+$upscope $end
+$enddefinitions $end
+#5300000
+$dumpvars
+b1000 !
+b100000 "
+b10100 #
+$end

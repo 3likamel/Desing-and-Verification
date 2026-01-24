@@ -1,0 +1,250 @@
+parameter  width = 8;
+parameter  dipth = 32;
+parameter  addr_width = $clog2(dipth);
+
+interface FIFO_if;
+    logic      clk,rst;
+    logic      rd,wr;
+    logic      full,empty;
+    logic      [width-1:0] din;
+    logic      [width-1:0] dout;
+endinterface
+
+class transaction;
+    
+   // bit rst;
+    bit rd,wr;
+    bit full,empty;
+    bit [width-1:0] din;
+    bit [width-1:0] dout;
+
+    function transaction copy();
+        copy = new();
+        copy.rd = this.rd;
+        copy.wr = this.wr;
+        copy.full = this.full;
+        copy.empty = this.empty;
+        copy.din = this.din;
+        copy.dout = this.dout;
+    endfunction
+
+    function void display(input string tag);
+        $display("[%0s] rd = %0d \t wr = %0d \t full = %0d \t empty = %0d \t din = %0d \t dout = %0d \t",tag,rd,wr,full,empty,din,dout);
+    endfunction
+
+endclass
+
+class generator;
+
+    transaction trans;
+    mailbox #(transaction) gen2drv;
+    mailbox #(transaction) gen2sco;
+
+    event sconext;
+    event done;
+
+    function new(inout mailbox #(transaction) gen2drv,gen2sco);
+        this.gen2sco = gen2sco;
+        this.gen2drv = gen2drv;
+        trans = new();
+    endfunction
+
+    task run();
+        repeat (2*dipth) begin
+            assert(trans.randomize()) else $error("Randomization Failed");
+            $display("[%0t] [GEN] Send Data to Driver",$time);
+            gen2drv.put(trans.copy());
+            gen2sco.put(trans.copy());
+            trans.copy.display("GEN");
+            @(sconext);
+        end
+        ->done;
+    endtask
+endclass
+
+class driver;
+
+    transaction data;
+    virtual FIFO_if drv_fifo;
+    mailbox #(transaction) gen2drv;
+
+    function new(inout mailbox #(transaction) gen2drv);
+        this.gen2drv = gen2drv;
+        data = new();
+    endfunction
+
+    task run;
+        forever begin
+            gen2drv.get(data);
+            $display("[%0t] [DRV] Apply data to DUT",$time);
+            data.display("DRV");
+            drv_fifo.rst   <= 0;
+            drv_fifo.rd    <= data.rd;
+            drv_fifo.wr    <= data.wr;
+            drv_fifo.din   <= data.din;
+            @(posedge drv_fifo.clk);
+        end
+        
+    endtask
+endclass
+
+class monitor;
+    transaction data;
+    virtual FIFO_if mon_fifo;
+    mailbox #(transaction) mon2sco;
+
+    function new(inout mailbox #(transaction) mon2sco);
+        this.mon2sco = mon2sco;
+        data = new();
+    endfunction
+
+    task run();
+        forever begin
+            @(posedge mon_fifo.clk);
+            $display("[%0t] [MON] Received data from DUT and sent it to scoreboard",$time);
+            data.display("MON");
+            data.rd      = mon_fifo.rd;
+            data.wr      = mon_fifo.wr;
+            data.empty   = mon_fifo.empty;
+            data.full    = mon_fifo.full;
+            data.din     = mon_fifo.din;
+            data.dout    = mon_fifo.dout;
+            mon2sco.put(data);
+        end
+    endtask
+
+endclass
+
+class scoreboard;
+
+    transaction data;
+    transaction refdata;
+    mailbox #(transaction) mon2sco;
+    mailbox #(transaction) gen2sco;
+
+    event sconext;
+
+    function new(input mailbox #(transaction) mon2sco, gen2sco);
+        this.mon2sco = mon2sco;
+        this.gen2sco = gen2sco;
+        data = new();
+    endfunction
+
+    task run();
+        $display("[%0t] [MON] Received data from MONITOR",$time);
+        mon2sco.get(data);
+        data.display("SCO");
+        $display("[SCO] REFRENCE data from GENERATOR");
+        gen2sco.get(refdata);
+        data.display("SCO");
+        if (refdata.rd ==1 ) begin
+            if (refdata.din == data.dout)
+                $display("DATA MATCHES");
+            else
+                $error("DATA MISMATCHES");
+        end
+
+        if (refdata.rd ==1 ) begin
+            if (refdata.din == data.dout)
+                $display("DATA MATCHES");
+            else
+                $error("DATA MISMATCHES");
+        end
+        -> sconext;
+    endtask
+
+
+endclass
+
+class enviroment;
+
+    transaction tras;
+    generator   gen;
+    driver      drv;
+    monitor     mon;
+    scoreboard  sco;
+
+    virtual FIFO_if FIFO_I;
+
+    event sconext;
+
+    mailbox #(transaction) gen2dsco;
+    mailbox #(transaction) gen2drv;
+    mailbox #(transaction) mon2sco;
+
+    function void new();
+        gen2dsco = new();
+        gen2drv  = new();
+        mon2sco  = new();
+        gen = new(gen2drv,gen2dsco);
+        drv = new(gen2drv);
+        mon = new(mon2sco);
+        sco = new(mon2sco,gen2dsco);
+        drv.drv_fifo = FIFO_I;
+        mon.mon_fifo = FIFO_I;
+        gen.sconext  = sconext;
+        sco.sconext  = sconext;
+    endfunction
+
+    task pre_test();
+        repeat(3)@(posedge FIFO_I.clk);
+        FIFO_I.rst = 1;
+        if (FIFO_I.dout == 0)
+            $display("RESET COMPLETED");
+        else
+            $display("RESET FAILED");
+        repeat(2)@(posedge FIFO_I.clk);
+        FIFO_I.rst = 0;
+    endtask
+
+    task test();
+        fork
+            gen.run;
+            drv.run;
+            mon.run;
+            sco.run;
+        join_any
+        wait(gen.done.triggered);
+        $finish;
+    endtask
+
+    task post_test();
+        $dumpfile("dump.vcd");
+        $dumpvars;
+    endtask
+
+    task run();
+        pre_test();
+        test();
+        post_test();
+    endtask
+
+endclass
+
+module FIFO_tb; // @suppress "File contains multiple design units"
+
+    enviroment env;
+
+    FIFO_if fifo();
+    FIFO #(
+        .width(width),
+        .dipth(dipth),
+        .addr_width(addr_width)
+    ) FIFO_instance (
+        .clk(fifo.clk),
+        .rst(fifo.rst),
+        .rd(fifo.rd),
+        .wr(fifo.wr),
+        .din(fifo.din),
+        .full(fifo.full),
+        .empty(fifo.empty),
+        .dout(fifo.dout)
+    );
+
+    initial begin
+        env = new();
+        env.run;
+    end
+    
+
+endmodule

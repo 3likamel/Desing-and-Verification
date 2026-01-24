@@ -1,0 +1,1436 @@
+restart
+# ** Note: (vsim-8009) Loading existing optimized design _opt
+# Loading work.FIFO_tb_sv_unit(fast)
+# Loading work.FIFO_tb(fast)
+# Loading work.FIFO_if(fast)
+run -all
+# RESET COMPLETED
+# --------------------------------------------------------------------
+# --------------------------------------------------------------------
+# [180000] [GEN] Send Data to Driver
+# [GEN] rd = 0 	 wr = 0 	 full = 0 	 empty = 0 	 din = 199 	 dout = 0 	
+# [220000] [DRV] Apply data to DUT
+# [DRV] rd = 0 	 wr = 0 	 full = 0 	 empty = 0 	 din = 199 	 dout = 0 	
+# [260000] [MON] SAMPLED DUT
+# [MON] rd = 0 	 wr = 0 	 full = 0 	 empty = 1 	 din = 199 	 dout = 0 	
+# [260000] [SCO] Checking
+# [SCO] rd = 0 	 wr = 0 	 full = 0 	 empty = 1 	 din = 199 	 dout = 0 	
+# ----------------------------------------------------
+# --------------------------------------------------------------------
+# [260000] [GEN] Send Data to Driver
+# [GEN] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 91 	 dout = 0 	
+# [300000] [DRV] Apply data to DUT
+# [DRV] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 91 	 dout = 0 	
+# [340000] [MON] SAMPLED DUT
+# [MON] rd = 1 	 wr = 0 	 full = 0 	 empty = 1 	 din = 91 	 dout = 0 	
+# [340000] [SCO] Checking
+# [SCO] rd = 1 	 wr = 0 	 full = 0 	 empty = 1 	 din = 91 	 dout = 0 	
+# [SCO] INFO: Read attempted while FIFO empty
+# ----------------------------------------------------
+# --------------------------------------------------------------------
+# [340000] [GEN] Send Data to Driver
+# [GEN] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 222 	 dout = 0 	
+# [380000] [DRV] Apply data to DUT
+# [DRV] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 222 	 dout = 0 	
+# [420000] [MON] SAMPLED DUT
+# [MON] rd = 1 	 wr = 0 	 full = 0 	 empty = 1 	 din = 222 	 dout = 0 	
+# [420000] [SCO] Checking
+# [SCO] rd = 1 	 wr = 0 	 full = 0 	 empty = 1 	 din = 222 	 dout = 0 	
+# [SCO] INFO: Read attempted while FIFO empty
+# ----------------------------------------------------
+# --------------------------------------------------------------------
+# [420000] [GEN] Send Data to Driver
+# [GEN] rd = 0 	 wr = 1 	 full = 0 	 empty = 0 	 din = 82 	 dout = 0 	
+# [460000] [DRV] Apply data to DUT
+# [DRV] rd = 0 	 wr = 1 	 full = 0 	 empty = 0 	 din = 82 	 dout = 0 	
+# [500000] [MON] SAMPLED DUT
+# [MON] rd = 0 	 wr = 1 	 full = 0 	 empty = 1 	 din = 82 	 dout = 0 	
+# [500000] [SCO] Checking
+# [SCO] rd = 0 	 wr = 1 	 full = 0 	 empty = 1 	 din = 82 	 dout = 0 	
+# [SCO] REF WRITE 82 (depth=1)
+# ** Error: [SCO] EMPTY FLAG WRONG (qsize=1, empty=1)
+#    Time: 500 ns  Scope: FIFO_tb_sv_unit.scoreboard.run File: D:/ghost/Digital/Verification/Udemy - SystemVerilog for Verification Part 2  Projects 2022-9/MINE/FIFO/FIFO_tb.sv Line: 201
+# ----------------------------------------------------
+# --------------------------------------------------------------------
+# [500000] [GEN] Send Data to Driver
+# [GEN] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 209 	 dout = 0 	
+# [540000] [DRV] Apply data to DUT
+# [DRV] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 209 	 dout = 0 	
+# [580000] [MON] SAMPLED DUT
+# [MON] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 209 	 dout = 0 	
+# [580000] [SCO] Checking
+# [SCO] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 209 	 dout = 0 	
+# ----------------------------------------------------
+# --------------------------------------------------------------------
+# [580000] [GEN] Send Data to Driver
+# [GEN] rd = 0 	 wr = 1 	 full = 0 	 empty = 0 	 din = 85 	 dout = 0 	
+# [620000] [DRV] Apply data to DUT
+# [DRV] rd = 0 	 wr = 1 	 full = 0 	 empty = 0 	 din = 85 	 dout = 0 	
+# [660000] [MON] SAMPLED DUT
+# [MON] rd = 0 	 wr = 1 	 full = 0 	 empty = 1 	 din = 85 	 dout = 82 	
+# [660000] [SCO] Checking
+# [SCO] rd = 0 	 wr = 1 	 full = 0 	 empty = 1 	 din = 85 	 dout = 82 	
+# [SCO] REF WRITE 85 (depth=1)
+# [SCO] READ MATCH exp=82 act=82
+# ** Error: [SCO] EMPTY FLAG WRONG (qsize=1, empty=1)
+#    Time: 660 ns  Scope: FIFO_tb_sv_unit.scoreboard.run File: D:/ghost/Digital/Verification/Udemy - SystemVerilog for Verification Part 2  Projects 2022-9/MINE/FIFO/FIFO_tb.sv Line: 201
+# ----------------------------------------------------
+# --------------------------------------------------------------------
+# [660000] [GEN] Send Data to Driver
+# [GEN] rd = 0 	 wr = 0 	 full = 0 	 empty = 0 	 din = 40 	 dout = 0 	
+# [700000] [DRV] Apply data to DUT
+# [DRV] rd = 0 	 wr = 0 	 full = 0 	 empty = 0 	 din = 40 	 dout = 0 	
+# [740000] [MON] SAMPLED DUT
+# [MON] rd = 0 	 wr = 0 	 full = 0 	 empty = 0 	 din = 40 	 dout = 82 	
+# [740000] [SCO] Checking
+# [SCO] rd = 0 	 wr = 0 	 full = 0 	 empty = 0 	 din = 40 	 dout = 82 	
+# ----------------------------------------------------
+# --------------------------------------------------------------------
+# [740000] [GEN] Send Data to Driver
+# [GEN] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 175 	 dout = 0 	
+# [780000] [DRV] Apply data to DUT
+# [DRV] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 175 	 dout = 0 	
+# [820000] [MON] SAMPLED DUT
+# [MON] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 175 	 dout = 82 	
+# [820000] [SCO] Checking
+# [SCO] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 175 	 dout = 82 	
+# ----------------------------------------------------
+# --------------------------------------------------------------------
+# [820000] [GEN] Send Data to Driver
+# [GEN] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 35 	 dout = 0 	
+# [860000] [DRV] Apply data to DUT
+# [DRV] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 35 	 dout = 0 	
+# [900000] [MON] SAMPLED DUT
+# [MON] rd = 1 	 wr = 0 	 full = 0 	 empty = 1 	 din = 35 	 dout = 85 	
+# [900000] [SCO] Checking
+# [SCO] rd = 1 	 wr = 0 	 full = 0 	 empty = 1 	 din = 35 	 dout = 85 	
+# [SCO] READ MATCH exp=85 act=85
+# [SCO] INFO: Read attempted while FIFO empty
+# ----------------------------------------------------
+# --------------------------------------------------------------------
+# [900000] [GEN] Send Data to Driver
+# [GEN] rd = 0 	 wr = 0 	 full = 0 	 empty = 0 	 din = 166 	 dout = 0 	
+# [940000] [DRV] Apply data to DUT
+# [DRV] rd = 0 	 wr = 0 	 full = 0 	 empty = 0 	 din = 166 	 dout = 0 	
+# [980000] [MON] SAMPLED DUT
+# [MON] rd = 0 	 wr = 0 	 full = 0 	 empty = 1 	 din = 166 	 dout = 85 	
+# [980000] [SCO] Checking
+# [SCO] rd = 0 	 wr = 0 	 full = 0 	 empty = 1 	 din = 166 	 dout = 85 	
+# ----------------------------------------------------
+# --------------------------------------------------------------------
+# [980000] [GEN] Send Data to Driver
+# [GEN] rd = 0 	 wr = 1 	 full = 0 	 empty = 0 	 din = 58 	 dout = 0 	
+# [1020000] [DRV] Apply data to DUT
+# [DRV] rd = 0 	 wr = 1 	 full = 0 	 empty = 0 	 din = 58 	 dout = 0 	
+# [1060000] [MON] SAMPLED DUT
+# [MON] rd = 0 	 wr = 1 	 full = 0 	 empty = 1 	 din = 58 	 dout = 85 	
+# [1060000] [SCO] Checking
+# [SCO] rd = 0 	 wr = 1 	 full = 0 	 empty = 1 	 din = 58 	 dout = 85 	
+# [SCO] REF WRITE 58 (depth=1)
+# ** Error: [SCO] EMPTY FLAG WRONG (qsize=1, empty=1)
+#    Time: 1060 ns  Scope: FIFO_tb_sv_unit.scoreboard.run File: D:/ghost/Digital/Verification/Udemy - SystemVerilog for Verification Part 2  Projects 2022-9/MINE/FIFO/FIFO_tb.sv Line: 201
+# ----------------------------------------------------
+# --------------------------------------------------------------------
+# [1060000] [GEN] Send Data to Driver
+# [GEN] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 185 	 dout = 0 	
+# [1100000] [DRV] Apply data to DUT
+# [DRV] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 185 	 dout = 0 	
+# [1140000] [MON] SAMPLED DUT
+# [MON] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 185 	 dout = 85 	
+# [1140000] [SCO] Checking
+# [SCO] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 185 	 dout = 85 	
+# ----------------------------------------------------
+# --------------------------------------------------------------------
+# [1140000] [GEN] Send Data to Driver
+# [GEN] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 61 	 dout = 0 	
+# [1180000] [DRV] Apply data to DUT
+# [DRV] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 61 	 dout = 0 	
+# [1220000] [MON] SAMPLED DUT
+# [MON] rd = 1 	 wr = 0 	 full = 0 	 empty = 1 	 din = 61 	 dout = 58 	
+# [1220000] [SCO] Checking
+# [SCO] rd = 1 	 wr = 0 	 full = 0 	 empty = 1 	 din = 61 	 dout = 58 	
+# [SCO] READ MATCH exp=58 act=58
+# [SCO] INFO: Read attempted while FIFO empty
+# ----------------------------------------------------
+# --------------------------------------------------------------------
+# [1220000] [GEN] Send Data to Driver
+# [GEN] rd = 0 	 wr = 0 	 full = 0 	 empty = 0 	 din = 176 	 dout = 0 	
+# [1260000] [DRV] Apply data to DUT
+# [DRV] rd = 0 	 wr = 0 	 full = 0 	 empty = 0 	 din = 176 	 dout = 0 	
+# [1300000] [MON] SAMPLED DUT
+# [MON] rd = 0 	 wr = 0 	 full = 0 	 empty = 1 	 din = 176 	 dout = 58 	
+# [1300000] [SCO] Checking
+# [SCO] rd = 0 	 wr = 0 	 full = 0 	 empty = 1 	 din = 176 	 dout = 58 	
+# ----------------------------------------------------
+# --------------------------------------------------------------------
+# [1300000] [GEN] Send Data to Driver
+# [GEN] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 52 	 dout = 0 	
+# [1340000] [DRV] Apply data to DUT
+# [DRV] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 52 	 dout = 0 	
+# [1380000] [MON] SAMPLED DUT
+# [MON] rd = 1 	 wr = 0 	 full = 0 	 empty = 1 	 din = 52 	 dout = 58 	
+# [1380000] [SCO] Checking
+# [SCO] rd = 1 	 wr = 0 	 full = 0 	 empty = 1 	 din = 52 	 dout = 58 	
+# [SCO] INFO: Read attempted while FIFO empty
+# ----------------------------------------------------
+# --------------------------------------------------------------------
+# [1380000] [GEN] Send Data to Driver
+# [GEN] rd = 0 	 wr = 1 	 full = 0 	 empty = 0 	 din = 139 	 dout = 0 	
+# [1420000] [DRV] Apply data to DUT
+# [DRV] rd = 0 	 wr = 1 	 full = 0 	 empty = 0 	 din = 139 	 dout = 0 	
+# [1460000] [MON] SAMPLED DUT
+# [MON] rd = 0 	 wr = 1 	 full = 0 	 empty = 1 	 din = 139 	 dout = 58 	
+# [1460000] [SCO] Checking
+# [SCO] rd = 0 	 wr = 1 	 full = 0 	 empty = 1 	 din = 139 	 dout = 58 	
+# [SCO] REF WRITE 139 (depth=1)
+# ** Error: [SCO] EMPTY FLAG WRONG (qsize=1, empty=1)
+#    Time: 1460 ns  Scope: FIFO_tb_sv_unit.scoreboard.run File: D:/ghost/Digital/Verification/Udemy - SystemVerilog for Verification Part 2  Projects 2022-9/MINE/FIFO/FIFO_tb.sv Line: 201
+# ----------------------------------------------------
+# --------------------------------------------------------------------
+# [1460000] [GEN] Send Data to Driver
+# [GEN] rd = 0 	 wr = 0 	 full = 0 	 empty = 0 	 din = 15 	 dout = 0 	
+# [1500000] [DRV] Apply data to DUT
+# [DRV] rd = 0 	 wr = 0 	 full = 0 	 empty = 0 	 din = 15 	 dout = 0 	
+# [1540000] [MON] SAMPLED DUT
+# [MON] rd = 0 	 wr = 0 	 full = 0 	 empty = 0 	 din = 15 	 dout = 58 	
+# [1540000] [SCO] Checking
+# [SCO] rd = 0 	 wr = 0 	 full = 0 	 empty = 0 	 din = 15 	 dout = 58 	
+# ----------------------------------------------------
+# --------------------------------------------------------------------
+# [1540000] [GEN] Send Data to Driver
+# [GEN] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 130 	 dout = 0 	
+# [1580000] [DRV] Apply data to DUT
+# [DRV] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 130 	 dout = 0 	
+# [1620000] [MON] SAMPLED DUT
+# [MON] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 130 	 dout = 58 	
+# [1620000] [SCO] Checking
+# [SCO] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 130 	 dout = 58 	
+# ----------------------------------------------------
+# --------------------------------------------------------------------
+# [1620000] [GEN] Send Data to Driver
+# [GEN] rd = 0 	 wr = 1 	 full = 0 	 empty = 0 	 din = 6 	 dout = 0 	
+# [1660000] [DRV] Apply data to DUT
+# [DRV] rd = 0 	 wr = 1 	 full = 0 	 empty = 0 	 din = 6 	 dout = 0 	
+# [1700000] [MON] SAMPLED DUT
+# [MON] rd = 0 	 wr = 1 	 full = 0 	 empty = 1 	 din = 6 	 dout = 139 	
+# [1700000] [SCO] Checking
+# [SCO] rd = 0 	 wr = 1 	 full = 0 	 empty = 1 	 din = 6 	 dout = 139 	
+# [SCO] REF WRITE 6 (depth=1)
+# [SCO] READ MATCH exp=139 act=139
+# ** Error: [SCO] EMPTY FLAG WRONG (qsize=1, empty=1)
+#    Time: 1700 ns  Scope: FIFO_tb_sv_unit.scoreboard.run File: D:/ghost/Digital/Verification/Udemy - SystemVerilog for Verification Part 2  Projects 2022-9/MINE/FIFO/FIFO_tb.sv Line: 201
+# ----------------------------------------------------
+# --------------------------------------------------------------------
+# [1700000] [GEN] Send Data to Driver
+# [GEN] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 133 	 dout = 0 	
+# [1740000] [DRV] Apply data to DUT
+# [DRV] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 133 	 dout = 0 	
+# [1780000] [MON] SAMPLED DUT
+# [MON] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 133 	 dout = 139 	
+# [1780000] [SCO] Checking
+# [SCO] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 133 	 dout = 139 	
+# ----------------------------------------------------
+# --------------------------------------------------------------------
+# [1780000] [GEN] Send Data to Driver
+# [GEN] rd = 0 	 wr = 1 	 full = 0 	 empty = 0 	 din = 25 	 dout = 0 	
+# [1820000] [DRV] Apply data to DUT
+# [DRV] rd = 0 	 wr = 1 	 full = 0 	 empty = 0 	 din = 25 	 dout = 0 	
+# [1860000] [MON] SAMPLED DUT
+# [MON] rd = 0 	 wr = 1 	 full = 0 	 empty = 1 	 din = 25 	 dout = 6 	
+# [1860000] [SCO] Checking
+# [SCO] rd = 0 	 wr = 1 	 full = 0 	 empty = 1 	 din = 25 	 dout = 6 	
+# [SCO] REF WRITE 25 (depth=1)
+# [SCO] READ MATCH exp=6 act=6
+# ** Error: [SCO] EMPTY FLAG WRONG (qsize=1, empty=1)
+#    Time: 1860 ns  Scope: FIFO_tb_sv_unit.scoreboard.run File: D:/ghost/Digital/Verification/Udemy - SystemVerilog for Verification Part 2  Projects 2022-9/MINE/FIFO/FIFO_tb.sv Line: 201
+# ----------------------------------------------------
+# --------------------------------------------------------------------
+# [1860000] [GEN] Send Data to Driver
+# [GEN] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 156 	 dout = 0 	
+# [1900000] [DRV] Apply data to DUT
+# [DRV] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 156 	 dout = 0 	
+# [1940000] [MON] SAMPLED DUT
+# [MON] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 156 	 dout = 6 	
+# [1940000] [SCO] Checking
+# [SCO] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 156 	 dout = 6 	
+# ----------------------------------------------------
+# --------------------------------------------------------------------
+# [1940000] [GEN] Send Data to Driver
+# [GEN] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 16 	 dout = 0 	
+# [1980000] [DRV] Apply data to DUT
+# [DRV] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 16 	 dout = 0 	
+# [2020000] [MON] SAMPLED DUT
+# [MON] rd = 1 	 wr = 0 	 full = 0 	 empty = 1 	 din = 16 	 dout = 25 	
+# [2020000] [SCO] Checking
+# [SCO] rd = 1 	 wr = 0 	 full = 0 	 empty = 1 	 din = 16 	 dout = 25 	
+# [SCO] READ MATCH exp=25 act=25
+# [SCO] INFO: Read attempted while FIFO empty
+# ----------------------------------------------------
+# --------------------------------------------------------------------
+# [2020000] [GEN] Send Data to Driver
+# [GEN] rd = 0 	 wr = 0 	 full = 0 	 empty = 0 	 din = 151 	 dout = 0 	
+# [2060000] [DRV] Apply data to DUT
+# [DRV] rd = 0 	 wr = 0 	 full = 0 	 empty = 0 	 din = 151 	 dout = 0 	
+# [2100000] [MON] SAMPLED DUT
+# [MON] rd = 0 	 wr = 0 	 full = 0 	 empty = 1 	 din = 151 	 dout = 25 	
+# [2100000] [SCO] Checking
+# [SCO] rd = 0 	 wr = 0 	 full = 0 	 empty = 1 	 din = 151 	 dout = 25 	
+# ----------------------------------------------------
+# --------------------------------------------------------------------
+# [2100000] [GEN] Send Data to Driver
+# [GEN] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 107 	 dout = 0 	
+# [2140000] [DRV] Apply data to DUT
+# [DRV] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 107 	 dout = 0 	
+# [2180000] [MON] SAMPLED DUT
+# [MON] rd = 1 	 wr = 0 	 full = 0 	 empty = 1 	 din = 107 	 dout = 25 	
+# [2180000] [SCO] Checking
+# [SCO] rd = 1 	 wr = 0 	 full = 0 	 empty = 1 	 din = 107 	 dout = 25 	
+# [SCO] INFO: Read attempted while FIFO empty
+# ----------------------------------------------------
+# --------------------------------------------------------------------
+# [2180000] [GEN] Send Data to Driver
+# [GEN] rd = 0 	 wr = 1 	 full = 0 	 empty = 0 	 din = 238 	 dout = 0 	
+# [2220000] [DRV] Apply data to DUT
+# [DRV] rd = 0 	 wr = 1 	 full = 0 	 empty = 0 	 din = 238 	 dout = 0 	
+# [2260000] [MON] SAMPLED DUT
+# [MON] rd = 0 	 wr = 1 	 full = 0 	 empty = 1 	 din = 238 	 dout = 25 	
+# [2260000] [SCO] Checking
+# [SCO] rd = 0 	 wr = 1 	 full = 0 	 empty = 1 	 din = 238 	 dout = 25 	
+# [SCO] REF WRITE 238 (depth=1)
+# ** Error: [SCO] EMPTY FLAG WRONG (qsize=1, empty=1)
+#    Time: 2260 ns  Scope: FIFO_tb_sv_unit.scoreboard.run File: D:/ghost/Digital/Verification/Udemy - SystemVerilog for Verification Part 2  Projects 2022-9/MINE/FIFO/FIFO_tb.sv Line: 201
+# ----------------------------------------------------
+# --------------------------------------------------------------------
+# [2260000] [GEN] Send Data to Driver
+# [GEN] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 98 	 dout = 0 	
+# [2300000] [DRV] Apply data to DUT
+# [DRV] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 98 	 dout = 0 	
+# [2340000] [MON] SAMPLED DUT
+# [MON] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 98 	 dout = 25 	
+# [2340000] [SCO] Checking
+# [SCO] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 98 	 dout = 25 	
+# ----------------------------------------------------
+# --------------------------------------------------------------------
+# [2340000] [GEN] Send Data to Driver
+# [GEN] rd = 0 	 wr = 0 	 full = 0 	 empty = 0 	 din = 225 	 dout = 0 	
+# [2380000] [DRV] Apply data to DUT
+# [DRV] rd = 0 	 wr = 0 	 full = 0 	 empty = 0 	 din = 225 	 dout = 0 	
+# [2420000] [MON] SAMPLED DUT
+# [MON] rd = 0 	 wr = 0 	 full = 0 	 empty = 1 	 din = 225 	 dout = 238 	
+# [2420000] [SCO] Checking
+# [SCO] rd = 0 	 wr = 0 	 full = 0 	 empty = 1 	 din = 225 	 dout = 238 	
+# [SCO] READ MATCH exp=238 act=238
+# ----------------------------------------------------
+# --------------------------------------------------------------------
+# [2420000] [GEN] Send Data to Driver
+# [GEN] rd = 0 	 wr = 0 	 full = 0 	 empty = 0 	 din = 101 	 dout = 0 	
+# [2460000] [DRV] Apply data to DUT
+# [DRV] rd = 0 	 wr = 0 	 full = 0 	 empty = 0 	 din = 101 	 dout = 0 	
+# [2500000] [MON] SAMPLED DUT
+# [MON] rd = 0 	 wr = 0 	 full = 0 	 empty = 1 	 din = 101 	 dout = 238 	
+# [2500000] [SCO] Checking
+# [SCO] rd = 0 	 wr = 0 	 full = 0 	 empty = 1 	 din = 101 	 dout = 238 	
+# ----------------------------------------------------
+# --------------------------------------------------------------------
+# [2500000] [GEN] Send Data to Driver
+# [GEN] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 248 	 dout = 0 	
+# [2540000] [DRV] Apply data to DUT
+# [DRV] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 248 	 dout = 0 	
+# [2580000] [MON] SAMPLED DUT
+# [MON] rd = 1 	 wr = 0 	 full = 0 	 empty = 1 	 din = 248 	 dout = 238 	
+# [2580000] [SCO] Checking
+# [SCO] rd = 1 	 wr = 0 	 full = 0 	 empty = 1 	 din = 248 	 dout = 238 	
+# [SCO] INFO: Read attempted while FIFO empty
+# ----------------------------------------------------
+# --------------------------------------------------------------------
+# [2580000] [GEN] Send Data to Driver
+# [GEN] rd = 0 	 wr = 1 	 full = 0 	 empty = 0 	 din = 124 	 dout = 0 	
+# [2620000] [DRV] Apply data to DUT
+# [DRV] rd = 0 	 wr = 1 	 full = 0 	 empty = 0 	 din = 124 	 dout = 0 	
+# [2660000] [MON] SAMPLED DUT
+# [MON] rd = 0 	 wr = 1 	 full = 0 	 empty = 1 	 din = 124 	 dout = 238 	
+# [2660000] [SCO] Checking
+# [SCO] rd = 0 	 wr = 1 	 full = 0 	 empty = 1 	 din = 124 	 dout = 238 	
+# [SCO] REF WRITE 124 (depth=1)
+# ** Error: [SCO] EMPTY FLAG WRONG (qsize=1, empty=1)
+#    Time: 2660 ns  Scope: FIFO_tb_sv_unit.scoreboard.run File: D:/ghost/Digital/Verification/Udemy - SystemVerilog for Verification Part 2  Projects 2022-9/MINE/FIFO/FIFO_tb.sv Line: 201
+# ----------------------------------------------------
+# --------------------------------------------------------------------
+# [2660000] [GEN] Send Data to Driver
+# [GEN] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 243 	 dout = 0 	
+# [2700000] [DRV] Apply data to DUT
+# [DRV] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 243 	 dout = 0 	
+# [2740000] [MON] SAMPLED DUT
+# [MON] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 243 	 dout = 238 	
+# [2740000] [SCO] Checking
+# [SCO] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 243 	 dout = 238 	
+# ----------------------------------------------------
+# --------------------------------------------------------------------
+# [2740000] [GEN] Send Data to Driver
+# [GEN] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 119 	 dout = 0 	
+# [2780000] [DRV] Apply data to DUT
+# [DRV] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 119 	 dout = 0 	
+# [2820000] [MON] SAMPLED DUT
+# [MON] rd = 1 	 wr = 0 	 full = 0 	 empty = 1 	 din = 119 	 dout = 124 	
+# [2820000] [SCO] Checking
+# [SCO] rd = 1 	 wr = 0 	 full = 0 	 empty = 1 	 din = 119 	 dout = 124 	
+# [SCO] READ MATCH exp=124 act=124
+# [SCO] INFO: Read attempted while FIFO empty
+# ----------------------------------------------------
+# --------------------------------------------------------------------
+# [2820000] [GEN] Send Data to Driver
+# [GEN] rd = 0 	 wr = 0 	 full = 0 	 empty = 0 	 din = 202 	 dout = 0 	
+# [2860000] [DRV] Apply data to DUT
+# [DRV] rd = 0 	 wr = 0 	 full = 0 	 empty = 0 	 din = 202 	 dout = 0 	
+# [2900000] [MON] SAMPLED DUT
+# [MON] rd = 0 	 wr = 0 	 full = 0 	 empty = 1 	 din = 202 	 dout = 124 	
+# [2900000] [SCO] Checking
+# [SCO] rd = 0 	 wr = 0 	 full = 0 	 empty = 1 	 din = 202 	 dout = 124 	
+# ----------------------------------------------------
+# --------------------------------------------------------------------
+# [2900000] [GEN] Send Data to Driver
+# [GEN] rd = 0 	 wr = 1 	 full = 0 	 empty = 0 	 din = 78 	 dout = 0 	
+# [2940000] [DRV] Apply data to DUT
+# [DRV] rd = 0 	 wr = 1 	 full = 0 	 empty = 0 	 din = 78 	 dout = 0 	
+# [2980000] [MON] SAMPLED DUT
+# [MON] rd = 0 	 wr = 1 	 full = 0 	 empty = 1 	 din = 78 	 dout = 124 	
+# [2980000] [SCO] Checking
+# [SCO] rd = 0 	 wr = 1 	 full = 0 	 empty = 1 	 din = 78 	 dout = 124 	
+# [SCO] REF WRITE 78 (depth=1)
+# ** Error: [SCO] EMPTY FLAG WRONG (qsize=1, empty=1)
+#    Time: 2980 ns  Scope: FIFO_tb_sv_unit.scoreboard.run File: D:/ghost/Digital/Verification/Udemy - SystemVerilog for Verification Part 2  Projects 2022-9/MINE/FIFO/FIFO_tb.sv Line: 201
+# ----------------------------------------------------
+# --------------------------------------------------------------------
+# [2980000] [GEN] Send Data to Driver
+# [GEN] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 205 	 dout = 0 	
+# [3020000] [DRV] Apply data to DUT
+# [DRV] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 205 	 dout = 0 	
+# [3060000] [MON] SAMPLED DUT
+# [MON] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 205 	 dout = 124 	
+# [3060000] [SCO] Checking
+# [SCO] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 205 	 dout = 124 	
+# ----------------------------------------------------
+# --------------------------------------------------------------------
+# [3060000] [GEN] Send Data to Driver
+# [GEN] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 65 	 dout = 0 	
+# [3100000] [DRV] Apply data to DUT
+# [DRV] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 65 	 dout = 0 	
+# [3140000] [MON] SAMPLED DUT
+# [MON] rd = 1 	 wr = 0 	 full = 0 	 empty = 1 	 din = 65 	 dout = 78 	
+# [3140000] [SCO] Checking
+# [SCO] rd = 1 	 wr = 0 	 full = 0 	 empty = 1 	 din = 65 	 dout = 78 	
+# [SCO] READ MATCH exp=78 act=78
+# [SCO] INFO: Read attempted while FIFO empty
+# ----------------------------------------------------
+# --------------------------------------------------------------------
+# [3140000] [GEN] Send Data to Driver
+# [GEN] rd = 0 	 wr = 1 	 full = 0 	 empty = 0 	 din = 196 	 dout = 0 	
+# [3180000] [DRV] Apply data to DUT
+# [DRV] rd = 0 	 wr = 1 	 full = 0 	 empty = 0 	 din = 196 	 dout = 0 	
+# [3220000] [MON] SAMPLED DUT
+# [MON] rd = 0 	 wr = 1 	 full = 0 	 empty = 1 	 din = 196 	 dout = 78 	
+# [3220000] [SCO] Checking
+# [SCO] rd = 0 	 wr = 1 	 full = 0 	 empty = 1 	 din = 196 	 dout = 78 	
+# [SCO] REF WRITE 196 (depth=1)
+# ** Error: [SCO] EMPTY FLAG WRONG (qsize=1, empty=1)
+#    Time: 3220 ns  Scope: FIFO_tb_sv_unit.scoreboard.run File: D:/ghost/Digital/Verification/Udemy - SystemVerilog for Verification Part 2  Projects 2022-9/MINE/FIFO/FIFO_tb.sv Line: 201
+# ----------------------------------------------------
+# --------------------------------------------------------------------
+# [3220000] [GEN] Send Data to Driver
+# [GEN] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 88 	 dout = 0 	
+# [3260000] [DRV] Apply data to DUT
+# [DRV] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 88 	 dout = 0 	
+# [3300000] [MON] SAMPLED DUT
+# [MON] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 88 	 dout = 78 	
+# [3300000] [SCO] Checking
+# [SCO] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 88 	 dout = 78 	
+# ----------------------------------------------------
+# --------------------------------------------------------------------
+# [3300000] [GEN] Send Data to Driver
+# [GEN] rd = 0 	 wr = 0 	 full = 0 	 empty = 0 	 din = 223 	 dout = 0 	
+# [3340000] [DRV] Apply data to DUT
+# [DRV] rd = 0 	 wr = 0 	 full = 0 	 empty = 0 	 din = 223 	 dout = 0 	
+# [3380000] [MON] SAMPLED DUT
+# [MON] rd = 0 	 wr = 0 	 full = 0 	 empty = 1 	 din = 223 	 dout = 196 	
+# [3380000] [SCO] Checking
+# [SCO] rd = 0 	 wr = 0 	 full = 0 	 empty = 1 	 din = 223 	 dout = 196 	
+# [SCO] READ MATCH exp=196 act=196
+# ----------------------------------------------------
+# --------------------------------------------------------------------
+# [3380000] [GEN] Send Data to Driver
+# [GEN] rd = 0 	 wr = 0 	 full = 0 	 empty = 0 	 din = 83 	 dout = 0 	
+# [3420000] [DRV] Apply data to DUT
+# [DRV] rd = 0 	 wr = 0 	 full = 0 	 empty = 0 	 din = 83 	 dout = 0 	
+# [3460000] [MON] SAMPLED DUT
+# [MON] rd = 0 	 wr = 0 	 full = 0 	 empty = 1 	 din = 83 	 dout = 196 	
+# [3460000] [SCO] Checking
+# [SCO] rd = 0 	 wr = 0 	 full = 0 	 empty = 1 	 din = 83 	 dout = 196 	
+# ----------------------------------------------------
+# --------------------------------------------------------------------
+# [3460000] [GEN] Send Data to Driver
+# [GEN] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 214 	 dout = 0 	
+# [3500000] [DRV] Apply data to DUT
+# [DRV] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 214 	 dout = 0 	
+# [3540000] [MON] SAMPLED DUT
+# [MON] rd = 1 	 wr = 0 	 full = 0 	 empty = 1 	 din = 214 	 dout = 196 	
+# [3540000] [SCO] Checking
+# [SCO] rd = 1 	 wr = 0 	 full = 0 	 empty = 1 	 din = 214 	 dout = 196 	
+# [SCO] INFO: Read attempted while FIFO empty
+# ----------------------------------------------------
+# --------------------------------------------------------------------
+# [3540000] [GEN] Send Data to Driver
+# [GEN] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 41 	 dout = 0 	
+# [3580000] [DRV] Apply data to DUT
+# [DRV] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 41 	 dout = 0 	
+# [3620000] [MON] SAMPLED DUT
+# [MON] rd = 1 	 wr = 0 	 full = 0 	 empty = 1 	 din = 41 	 dout = 196 	
+# [3620000] [SCO] Checking
+# [SCO] rd = 1 	 wr = 0 	 full = 0 	 empty = 1 	 din = 41 	 dout = 196 	
+# [SCO] INFO: Read attempted while FIFO empty
+# ----------------------------------------------------
+# --------------------------------------------------------------------
+# [3620000] [GEN] Send Data to Driver
+# [GEN] rd = 0 	 wr = 1 	 full = 0 	 empty = 0 	 din = 172 	 dout = 0 	
+# [3660000] [DRV] Apply data to DUT
+# [DRV] rd = 0 	 wr = 1 	 full = 0 	 empty = 0 	 din = 172 	 dout = 0 	
+# [3700000] [MON] SAMPLED DUT
+# [MON] rd = 0 	 wr = 1 	 full = 0 	 empty = 1 	 din = 172 	 dout = 196 	
+# [3700000] [SCO] Checking
+# [SCO] rd = 0 	 wr = 1 	 full = 0 	 empty = 1 	 din = 172 	 dout = 196 	
+# [SCO] REF WRITE 172 (depth=1)
+# ** Error: [SCO] EMPTY FLAG WRONG (qsize=1, empty=1)
+#    Time: 3700 ns  Scope: FIFO_tb_sv_unit.scoreboard.run File: D:/ghost/Digital/Verification/Udemy - SystemVerilog for Verification Part 2  Projects 2022-9/MINE/FIFO/FIFO_tb.sv Line: 201
+# ----------------------------------------------------
+# --------------------------------------------------------------------
+# [3700000] [GEN] Send Data to Driver
+# [GEN] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 32 	 dout = 0 	
+# [3740000] [DRV] Apply data to DUT
+# [DRV] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 32 	 dout = 0 	
+# [3780000] [MON] SAMPLED DUT
+# [MON] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 32 	 dout = 196 	
+# [3780000] [SCO] Checking
+# [SCO] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 32 	 dout = 196 	
+# ----------------------------------------------------
+# --------------------------------------------------------------------
+# [3780000] [GEN] Send Data to Driver
+# [GEN] rd = 0 	 wr = 1 	 full = 0 	 empty = 0 	 din = 167 	 dout = 0 	
+# [3820000] [DRV] Apply data to DUT
+# [DRV] rd = 0 	 wr = 1 	 full = 0 	 empty = 0 	 din = 167 	 dout = 0 	
+# [3860000] [MON] SAMPLED DUT
+# [MON] rd = 0 	 wr = 1 	 full = 0 	 empty = 1 	 din = 167 	 dout = 172 	
+# [3860000] [SCO] Checking
+# [SCO] rd = 0 	 wr = 1 	 full = 0 	 empty = 1 	 din = 167 	 dout = 172 	
+# [SCO] REF WRITE 167 (depth=1)
+# [SCO] READ MATCH exp=172 act=172
+# ** Error: [SCO] EMPTY FLAG WRONG (qsize=1, empty=1)
+#    Time: 3860 ns  Scope: FIFO_tb_sv_unit.scoreboard.run File: D:/ghost/Digital/Verification/Udemy - SystemVerilog for Verification Part 2  Projects 2022-9/MINE/FIFO/FIFO_tb.sv Line: 201
+# ----------------------------------------------------
+# --------------------------------------------------------------------
+# [3860000] [GEN] Send Data to Driver
+# [GEN] rd = 0 	 wr = 0 	 full = 0 	 empty = 0 	 din = 59 	 dout = 0 	
+# [3900000] [DRV] Apply data to DUT
+# [DRV] rd = 0 	 wr = 0 	 full = 0 	 empty = 0 	 din = 59 	 dout = 0 	
+# [3940000] [MON] SAMPLED DUT
+# [MON] rd = 0 	 wr = 0 	 full = 0 	 empty = 0 	 din = 59 	 dout = 172 	
+# [3940000] [SCO] Checking
+# [SCO] rd = 0 	 wr = 0 	 full = 0 	 empty = 0 	 din = 59 	 dout = 172 	
+# ----------------------------------------------------
+# --------------------------------------------------------------------
+# [3940000] [GEN] Send Data to Driver
+# [GEN] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 190 	 dout = 0 	
+# [3980000] [DRV] Apply data to DUT
+# [DRV] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 190 	 dout = 0 	
+# [4020000] [MON] SAMPLED DUT
+# [MON] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 190 	 dout = 172 	
+# [4020000] [SCO] Checking
+# [SCO] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 190 	 dout = 172 	
+# ----------------------------------------------------
+# --------------------------------------------------------------------
+# [4020000] [GEN] Send Data to Driver
+# [GEN] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 50 	 dout = 0 	
+# [4060000] [DRV] Apply data to DUT
+# [DRV] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 50 	 dout = 0 	
+# [4100000] [MON] SAMPLED DUT
+# [MON] rd = 1 	 wr = 0 	 full = 0 	 empty = 1 	 din = 50 	 dout = 167 	
+# [4100000] [SCO] Checking
+# [SCO] rd = 1 	 wr = 0 	 full = 0 	 empty = 1 	 din = 50 	 dout = 167 	
+# [SCO] READ MATCH exp=167 act=167
+# [SCO] INFO: Read attempted while FIFO empty
+# ----------------------------------------------------
+# --------------------------------------------------------------------
+# [4100000] [GEN] Send Data to Driver
+# [GEN] rd = 0 	 wr = 1 	 full = 0 	 empty = 0 	 din = 177 	 dout = 0 	
+# [4140000] [DRV] Apply data to DUT
+# [DRV] rd = 0 	 wr = 1 	 full = 0 	 empty = 0 	 din = 177 	 dout = 0 	
+# [4180000] [MON] SAMPLED DUT
+# [MON] rd = 0 	 wr = 1 	 full = 0 	 empty = 1 	 din = 177 	 dout = 167 	
+# [4180000] [SCO] Checking
+# [SCO] rd = 0 	 wr = 1 	 full = 0 	 empty = 1 	 din = 177 	 dout = 167 	
+# [SCO] REF WRITE 177 (depth=1)
+# ** Error: [SCO] EMPTY FLAG WRONG (qsize=1, empty=1)
+#    Time: 4180 ns  Scope: FIFO_tb_sv_unit.scoreboard.run File: D:/ghost/Digital/Verification/Udemy - SystemVerilog for Verification Part 2  Projects 2022-9/MINE/FIFO/FIFO_tb.sv Line: 201
+# ----------------------------------------------------
+# --------------------------------------------------------------------
+# [4180000] [GEN] Send Data to Driver
+# [GEN] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 53 	 dout = 0 	
+# [4220000] [DRV] Apply data to DUT
+# [DRV] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 53 	 dout = 0 	
+# [4260000] [MON] SAMPLED DUT
+# [MON] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 53 	 dout = 167 	
+# [4260000] [SCO] Checking
+# [SCO] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 53 	 dout = 167 	
+# ----------------------------------------------------
+# --------------------------------------------------------------------
+# [4260000] [GEN] Send Data to Driver
+# [GEN] rd = 0 	 wr = 0 	 full = 0 	 empty = 0 	 din = 136 	 dout = 0 	
+# [4300000] [DRV] Apply data to DUT
+# [DRV] rd = 0 	 wr = 0 	 full = 0 	 empty = 0 	 din = 136 	 dout = 0 	
+# [4340000] [MON] SAMPLED DUT
+# [MON] rd = 0 	 wr = 0 	 full = 0 	 empty = 1 	 din = 136 	 dout = 177 	
+# [4340000] [SCO] Checking
+# [SCO] rd = 0 	 wr = 0 	 full = 0 	 empty = 1 	 din = 136 	 dout = 177 	
+# [SCO] READ MATCH exp=177 act=177
+# ----------------------------------------------------
+# --------------------------------------------------------------------
+# [4340000] [GEN] Send Data to Driver
+# [GEN] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 12 	 dout = 0 	
+# [4380000] [DRV] Apply data to DUT
+# [DRV] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 12 	 dout = 0 	
+# [4420000] [MON] SAMPLED DUT
+# [MON] rd = 1 	 wr = 0 	 full = 0 	 empty = 1 	 din = 12 	 dout = 177 	
+# [4420000] [SCO] Checking
+# [SCO] rd = 1 	 wr = 0 	 full = 0 	 empty = 1 	 din = 12 	 dout = 177 	
+# [SCO] INFO: Read attempted while FIFO empty
+# ----------------------------------------------------
+# --------------------------------------------------------------------
+# [4420000] [GEN] Send Data to Driver
+# [GEN] rd = 0 	 wr = 0 	 full = 0 	 empty = 0 	 din = 131 	 dout = 0 	
+# [4460000] [DRV] Apply data to DUT
+# [DRV] rd = 0 	 wr = 0 	 full = 0 	 empty = 0 	 din = 131 	 dout = 0 	
+# [4500000] [MON] SAMPLED DUT
+# [MON] rd = 0 	 wr = 0 	 full = 0 	 empty = 1 	 din = 131 	 dout = 177 	
+# [4500000] [SCO] Checking
+# [SCO] rd = 0 	 wr = 0 	 full = 0 	 empty = 1 	 din = 131 	 dout = 177 	
+# ----------------------------------------------------
+# --------------------------------------------------------------------
+# [4500000] [GEN] Send Data to Driver
+# [GEN] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 7 	 dout = 0 	
+# [4540000] [DRV] Apply data to DUT
+# [DRV] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 7 	 dout = 0 	
+# [4580000] [MON] SAMPLED DUT
+# [MON] rd = 1 	 wr = 0 	 full = 0 	 empty = 1 	 din = 7 	 dout = 177 	
+# [4580000] [SCO] Checking
+# [SCO] rd = 1 	 wr = 0 	 full = 0 	 empty = 1 	 din = 7 	 dout = 177 	
+# [SCO] INFO: Read attempted while FIFO empty
+# ----------------------------------------------------
+# --------------------------------------------------------------------
+# [4580000] [GEN] Send Data to Driver
+# [GEN] rd = 0 	 wr = 1 	 full = 0 	 empty = 0 	 din = 154 	 dout = 0 	
+# [4620000] [DRV] Apply data to DUT
+# [DRV] rd = 0 	 wr = 1 	 full = 0 	 empty = 0 	 din = 154 	 dout = 0 	
+# [4660000] [MON] SAMPLED DUT
+# [MON] rd = 0 	 wr = 1 	 full = 0 	 empty = 1 	 din = 154 	 dout = 177 	
+# [4660000] [SCO] Checking
+# [SCO] rd = 0 	 wr = 1 	 full = 0 	 empty = 1 	 din = 154 	 dout = 177 	
+# [SCO] REF WRITE 154 (depth=1)
+# ** Error: [SCO] EMPTY FLAG WRONG (qsize=1, empty=1)
+#    Time: 4660 ns  Scope: FIFO_tb_sv_unit.scoreboard.run File: D:/ghost/Digital/Verification/Udemy - SystemVerilog for Verification Part 2  Projects 2022-9/MINE/FIFO/FIFO_tb.sv Line: 201
+# ----------------------------------------------------
+# --------------------------------------------------------------------
+# [4660000] [GEN] Send Data to Driver
+# [GEN] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 30 	 dout = 0 	
+# [4700000] [DRV] Apply data to DUT
+# [DRV] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 30 	 dout = 0 	
+# [4740000] [MON] SAMPLED DUT
+# [MON] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 30 	 dout = 177 	
+# [4740000] [SCO] Checking
+# [SCO] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 30 	 dout = 177 	
+# ----------------------------------------------------
+# --------------------------------------------------------------------
+# [4740000] [GEN] Send Data to Driver
+# [GEN] rd = 0 	 wr = 0 	 full = 0 	 empty = 0 	 din = 157 	 dout = 0 	
+# [4780000] [DRV] Apply data to DUT
+# [DRV] rd = 0 	 wr = 0 	 full = 0 	 empty = 0 	 din = 157 	 dout = 0 	
+# [4820000] [MON] SAMPLED DUT
+# [MON] rd = 0 	 wr = 0 	 full = 0 	 empty = 1 	 din = 157 	 dout = 154 	
+# [4820000] [SCO] Checking
+# [SCO] rd = 0 	 wr = 0 	 full = 0 	 empty = 1 	 din = 157 	 dout = 154 	
+# [SCO] READ MATCH exp=154 act=154
+# ----------------------------------------------------
+# --------------------------------------------------------------------
+# [4820000] [GEN] Send Data to Driver
+# [GEN] rd = 0 	 wr = 1 	 full = 0 	 empty = 0 	 din = 17 	 dout = 0 	
+# [4860000] [DRV] Apply data to DUT
+# [DRV] rd = 0 	 wr = 1 	 full = 0 	 empty = 0 	 din = 17 	 dout = 0 	
+# [4900000] [MON] SAMPLED DUT
+# [MON] rd = 0 	 wr = 1 	 full = 0 	 empty = 1 	 din = 17 	 dout = 154 	
+# [4900000] [SCO] Checking
+# [SCO] rd = 0 	 wr = 1 	 full = 0 	 empty = 1 	 din = 17 	 dout = 154 	
+# [SCO] REF WRITE 17 (depth=1)
+# ** Error: [SCO] EMPTY FLAG WRONG (qsize=1, empty=1)
+#    Time: 4900 ns  Scope: FIFO_tb_sv_unit.scoreboard.run File: D:/ghost/Digital/Verification/Udemy - SystemVerilog for Verification Part 2  Projects 2022-9/MINE/FIFO/FIFO_tb.sv Line: 201
+# ----------------------------------------------------
+# --------------------------------------------------------------------
+# [4900000] [GEN] Send Data to Driver
+# [GEN] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 148 	 dout = 0 	
+# [4940000] [DRV] Apply data to DUT
+# [DRV] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 148 	 dout = 0 	
+# [4980000] [MON] SAMPLED DUT
+# [MON] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 148 	 dout = 154 	
+# [4980000] [SCO] Checking
+# [SCO] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 148 	 dout = 154 	
+# ----------------------------------------------------
+# --------------------------------------------------------------------
+# [4980000] [GEN] Send Data to Driver
+# [GEN] rd = 0 	 wr = 0 	 full = 0 	 empty = 0 	 din = 104 	 dout = 0 	
+# [5020000] [DRV] Apply data to DUT
+# [DRV] rd = 0 	 wr = 0 	 full = 0 	 empty = 0 	 din = 104 	 dout = 0 	
+# [5060000] [MON] SAMPLED DUT
+# [MON] rd = 0 	 wr = 0 	 full = 0 	 empty = 1 	 din = 104 	 dout = 17 	
+# [5060000] [SCO] Checking
+# [SCO] rd = 0 	 wr = 0 	 full = 0 	 empty = 1 	 din = 104 	 dout = 17 	
+# [SCO] READ MATCH exp=17 act=17
+# ----------------------------------------------------
+# --------------------------------------------------------------------
+# [5060000] [GEN] Send Data to Driver
+# [GEN] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 239 	 dout = 0 	
+# [5100000] [DRV] Apply data to DUT
+# [DRV] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 239 	 dout = 0 	
+# [5140000] [MON] SAMPLED DUT
+# [MON] rd = 1 	 wr = 0 	 full = 0 	 empty = 1 	 din = 239 	 dout = 17 	
+# [5140000] [SCO] Checking
+# [SCO] rd = 1 	 wr = 0 	 full = 0 	 empty = 1 	 din = 239 	 dout = 17 	
+# [SCO] INFO: Read attempted while FIFO empty
+# ----------------------------------------------------
+# --------------------------------------------------------------------
+# [5140000] [GEN] Send Data to Driver
+# [GEN] rd = 0 	 wr = 1 	 full = 0 	 empty = 0 	 din = 99 	 dout = 0 	
+# [5180000] [DRV] Apply data to DUT
+# [DRV] rd = 0 	 wr = 1 	 full = 0 	 empty = 0 	 din = 99 	 dout = 0 	
+# [5220000] [MON] SAMPLED DUT
+# [MON] rd = 0 	 wr = 1 	 full = 0 	 empty = 1 	 din = 99 	 dout = 17 	
+# [5220000] [SCO] Checking
+# [SCO] rd = 0 	 wr = 1 	 full = 0 	 empty = 1 	 din = 99 	 dout = 17 	
+# [SCO] REF WRITE 99 (depth=1)
+# ** Error: [SCO] EMPTY FLAG WRONG (qsize=1, empty=1)
+#    Time: 5220 ns  Scope: FIFO_tb_sv_unit.scoreboard.run File: D:/ghost/Digital/Verification/Udemy - SystemVerilog for Verification Part 2  Projects 2022-9/MINE/FIFO/FIFO_tb.sv Line: 201
+# ----------------------------------------------------
+# --------------------------------------------------------------------
+# [5220000] [GEN] Send Data to Driver
+# [GEN] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 230 	 dout = 0 	
+# [5260000] [DRV] Apply data to DUT
+# [DRV] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 230 	 dout = 0 	
+# [5300000] [MON] SAMPLED DUT
+# [MON] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 230 	 dout = 17 	
+# [5300000] [SCO] Checking
+# [SCO] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 230 	 dout = 17 	
+# ----------------------------------------------------
+# ** Note: $finish    : D:/ghost/Digital/Verification/Udemy - SystemVerilog for Verification Part 2  Projects 2022-9/MINE/FIFO/FIFO_tb.sv(263)
+#    Time: 5300 ns  Iteration: 4  Instance: /FIFO_tb
+# 1
+# Break in Task FIFO_tb_sv_unit/enviroment::test at D:/ghost/Digital/Verification/Udemy - SystemVerilog for Verification Part 2  Projects 2022-9/MINE/FIFO/FIFO_tb.sv line 263
+# Compile of FIFO.sv was successful.
+# Compile of FIFO_tb.sv was successful.
+# 2 compiles, 0 failed with no errors.
+restart
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# Loading sv_std.std
+# Loading work.FIFO_tb_sv_unit(fast)
+# Loading work.FIFO_tb(fast)
+# Loading work.FIFO_if(fast)
+run -all
+# RESET COMPLETED
+# --------------------------------------------------------------------
+# --------------------------------------------------------------------
+# [180000] [GEN] Send Data to Driver
+# [GEN] rd = 0 	 wr = 0 	 full = 0 	 empty = 0 	 din = 199 	 dout = 0 	
+# [220000] [DRV] Apply data to DUT
+# [DRV] rd = 0 	 wr = 0 	 full = 0 	 empty = 0 	 din = 199 	 dout = 0 	
+# [260000] [MON] SAMPLED DUT
+# [MON] rd = 0 	 wr = 0 	 full = 0 	 empty = 1 	 din = 199 	 dout = 0 	
+# [260000] [SCO] Checking
+# [SCO] rd = 0 	 wr = 0 	 full = 0 	 empty = 1 	 din = 199 	 dout = 0 	
+# ----------------------------------------------------
+# --------------------------------------------------------------------
+# [260000] [GEN] Send Data to Driver
+# [GEN] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 91 	 dout = 0 	
+# [300000] [DRV] Apply data to DUT
+# [DRV] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 91 	 dout = 0 	
+# [340000] [MON] SAMPLED DUT
+# [MON] rd = 1 	 wr = 0 	 full = 0 	 empty = 1 	 din = 91 	 dout = 0 	
+# [340000] [SCO] Checking
+# [SCO] rd = 1 	 wr = 0 	 full = 0 	 empty = 1 	 din = 91 	 dout = 0 	
+# [SCO] INFO: Read attempted while FIFO empty
+# ----------------------------------------------------
+# --------------------------------------------------------------------
+# [340000] [GEN] Send Data to Driver
+# [GEN] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 222 	 dout = 0 	
+# [380000] [DRV] Apply data to DUT
+# [DRV] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 222 	 dout = 0 	
+# [420000] [MON] SAMPLED DUT
+# [MON] rd = 1 	 wr = 0 	 full = 0 	 empty = 1 	 din = 222 	 dout = 0 	
+# [420000] [SCO] Checking
+# [SCO] rd = 1 	 wr = 0 	 full = 0 	 empty = 1 	 din = 222 	 dout = 0 	
+# [SCO] INFO: Read attempted while FIFO empty
+# ----------------------------------------------------
+# --------------------------------------------------------------------
+# [420000] [GEN] Send Data to Driver
+# [GEN] rd = 0 	 wr = 1 	 full = 0 	 empty = 0 	 din = 82 	 dout = 0 	
+# [460000] [DRV] Apply data to DUT
+# [DRV] rd = 0 	 wr = 1 	 full = 0 	 empty = 0 	 din = 82 	 dout = 0 	
+# [500000] [MON] SAMPLED DUT
+# [MON] rd = 0 	 wr = 1 	 full = 0 	 empty = 1 	 din = 82 	 dout = 0 	
+# [500000] [SCO] Checking
+# [SCO] rd = 0 	 wr = 1 	 full = 0 	 empty = 1 	 din = 82 	 dout = 0 	
+# [SCO] REF WRITE 82 (depth=1)
+# ----------------------------------------------------
+# --------------------------------------------------------------------
+# [500000] [GEN] Send Data to Driver
+# [GEN] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 209 	 dout = 0 	
+# [540000] [DRV] Apply data to DUT
+# [DRV] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 209 	 dout = 0 	
+# [580000] [MON] SAMPLED DUT
+# [MON] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 209 	 dout = 0 	
+# [580000] [SCO] Checking
+# [SCO] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 209 	 dout = 0 	
+# ----------------------------------------------------
+# --------------------------------------------------------------------
+# [580000] [GEN] Send Data to Driver
+# [GEN] rd = 0 	 wr = 1 	 full = 0 	 empty = 0 	 din = 85 	 dout = 0 	
+# [620000] [DRV] Apply data to DUT
+# [DRV] rd = 0 	 wr = 1 	 full = 0 	 empty = 0 	 din = 85 	 dout = 0 	
+# [660000] [MON] SAMPLED DUT
+# [MON] rd = 0 	 wr = 1 	 full = 0 	 empty = 1 	 din = 85 	 dout = 82 	
+# [660000] [SCO] Checking
+# [SCO] rd = 0 	 wr = 1 	 full = 0 	 empty = 1 	 din = 85 	 dout = 82 	
+# [SCO] REF WRITE 85 (depth=1)
+# [SCO] READ MATCH exp=82 act=82
+# ----------------------------------------------------
+# --------------------------------------------------------------------
+# [660000] [GEN] Send Data to Driver
+# [GEN] rd = 0 	 wr = 0 	 full = 0 	 empty = 0 	 din = 40 	 dout = 0 	
+# [700000] [DRV] Apply data to DUT
+# [DRV] rd = 0 	 wr = 0 	 full = 0 	 empty = 0 	 din = 40 	 dout = 0 	
+# [740000] [MON] SAMPLED DUT
+# [MON] rd = 0 	 wr = 0 	 full = 0 	 empty = 0 	 din = 40 	 dout = 82 	
+# [740000] [SCO] Checking
+# [SCO] rd = 0 	 wr = 0 	 full = 0 	 empty = 0 	 din = 40 	 dout = 82 	
+# ----------------------------------------------------
+# --------------------------------------------------------------------
+# [740000] [GEN] Send Data to Driver
+# [GEN] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 175 	 dout = 0 	
+# [780000] [DRV] Apply data to DUT
+# [DRV] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 175 	 dout = 0 	
+# [820000] [MON] SAMPLED DUT
+# [MON] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 175 	 dout = 82 	
+# [820000] [SCO] Checking
+# [SCO] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 175 	 dout = 82 	
+# ----------------------------------------------------
+# --------------------------------------------------------------------
+# [820000] [GEN] Send Data to Driver
+# [GEN] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 35 	 dout = 0 	
+# [860000] [DRV] Apply data to DUT
+# [DRV] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 35 	 dout = 0 	
+# [900000] [MON] SAMPLED DUT
+# [MON] rd = 1 	 wr = 0 	 full = 0 	 empty = 1 	 din = 35 	 dout = 85 	
+# [900000] [SCO] Checking
+# [SCO] rd = 1 	 wr = 0 	 full = 0 	 empty = 1 	 din = 35 	 dout = 85 	
+# [SCO] READ MATCH exp=85 act=85
+# [SCO] INFO: Read attempted while FIFO empty
+# ----------------------------------------------------
+# --------------------------------------------------------------------
+# [900000] [GEN] Send Data to Driver
+# [GEN] rd = 0 	 wr = 0 	 full = 0 	 empty = 0 	 din = 166 	 dout = 0 	
+# [940000] [DRV] Apply data to DUT
+# [DRV] rd = 0 	 wr = 0 	 full = 0 	 empty = 0 	 din = 166 	 dout = 0 	
+# [980000] [MON] SAMPLED DUT
+# [MON] rd = 0 	 wr = 0 	 full = 0 	 empty = 1 	 din = 166 	 dout = 85 	
+# [980000] [SCO] Checking
+# [SCO] rd = 0 	 wr = 0 	 full = 0 	 empty = 1 	 din = 166 	 dout = 85 	
+# ----------------------------------------------------
+# --------------------------------------------------------------------
+# [980000] [GEN] Send Data to Driver
+# [GEN] rd = 0 	 wr = 1 	 full = 0 	 empty = 0 	 din = 58 	 dout = 0 	
+# [1020000] [DRV] Apply data to DUT
+# [DRV] rd = 0 	 wr = 1 	 full = 0 	 empty = 0 	 din = 58 	 dout = 0 	
+# [1060000] [MON] SAMPLED DUT
+# [MON] rd = 0 	 wr = 1 	 full = 0 	 empty = 1 	 din = 58 	 dout = 85 	
+# [1060000] [SCO] Checking
+# [SCO] rd = 0 	 wr = 1 	 full = 0 	 empty = 1 	 din = 58 	 dout = 85 	
+# [SCO] REF WRITE 58 (depth=1)
+# ----------------------------------------------------
+# --------------------------------------------------------------------
+# [1060000] [GEN] Send Data to Driver
+# [GEN] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 185 	 dout = 0 	
+# [1100000] [DRV] Apply data to DUT
+# [DRV] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 185 	 dout = 0 	
+# [1140000] [MON] SAMPLED DUT
+# [MON] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 185 	 dout = 85 	
+# [1140000] [SCO] Checking
+# [SCO] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 185 	 dout = 85 	
+# ----------------------------------------------------
+# --------------------------------------------------------------------
+# [1140000] [GEN] Send Data to Driver
+# [GEN] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 61 	 dout = 0 	
+# [1180000] [DRV] Apply data to DUT
+# [DRV] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 61 	 dout = 0 	
+# [1220000] [MON] SAMPLED DUT
+# [MON] rd = 1 	 wr = 0 	 full = 0 	 empty = 1 	 din = 61 	 dout = 58 	
+# [1220000] [SCO] Checking
+# [SCO] rd = 1 	 wr = 0 	 full = 0 	 empty = 1 	 din = 61 	 dout = 58 	
+# [SCO] READ MATCH exp=58 act=58
+# [SCO] INFO: Read attempted while FIFO empty
+# ----------------------------------------------------
+# --------------------------------------------------------------------
+# [1220000] [GEN] Send Data to Driver
+# [GEN] rd = 0 	 wr = 0 	 full = 0 	 empty = 0 	 din = 176 	 dout = 0 	
+# [1260000] [DRV] Apply data to DUT
+# [DRV] rd = 0 	 wr = 0 	 full = 0 	 empty = 0 	 din = 176 	 dout = 0 	
+# [1300000] [MON] SAMPLED DUT
+# [MON] rd = 0 	 wr = 0 	 full = 0 	 empty = 1 	 din = 176 	 dout = 58 	
+# [1300000] [SCO] Checking
+# [SCO] rd = 0 	 wr = 0 	 full = 0 	 empty = 1 	 din = 176 	 dout = 58 	
+# ----------------------------------------------------
+# --------------------------------------------------------------------
+# [1300000] [GEN] Send Data to Driver
+# [GEN] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 52 	 dout = 0 	
+# [1340000] [DRV] Apply data to DUT
+# [DRV] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 52 	 dout = 0 	
+# [1380000] [MON] SAMPLED DUT
+# [MON] rd = 1 	 wr = 0 	 full = 0 	 empty = 1 	 din = 52 	 dout = 58 	
+# [1380000] [SCO] Checking
+# [SCO] rd = 1 	 wr = 0 	 full = 0 	 empty = 1 	 din = 52 	 dout = 58 	
+# [SCO] INFO: Read attempted while FIFO empty
+# ----------------------------------------------------
+# --------------------------------------------------------------------
+# [1380000] [GEN] Send Data to Driver
+# [GEN] rd = 0 	 wr = 1 	 full = 0 	 empty = 0 	 din = 139 	 dout = 0 	
+# [1420000] [DRV] Apply data to DUT
+# [DRV] rd = 0 	 wr = 1 	 full = 0 	 empty = 0 	 din = 139 	 dout = 0 	
+# [1460000] [MON] SAMPLED DUT
+# [MON] rd = 0 	 wr = 1 	 full = 0 	 empty = 1 	 din = 139 	 dout = 58 	
+# [1460000] [SCO] Checking
+# [SCO] rd = 0 	 wr = 1 	 full = 0 	 empty = 1 	 din = 139 	 dout = 58 	
+# [SCO] REF WRITE 139 (depth=1)
+# ----------------------------------------------------
+# --------------------------------------------------------------------
+# [1460000] [GEN] Send Data to Driver
+# [GEN] rd = 0 	 wr = 0 	 full = 0 	 empty = 0 	 din = 15 	 dout = 0 	
+# [1500000] [DRV] Apply data to DUT
+# [DRV] rd = 0 	 wr = 0 	 full = 0 	 empty = 0 	 din = 15 	 dout = 0 	
+# [1540000] [MON] SAMPLED DUT
+# [MON] rd = 0 	 wr = 0 	 full = 0 	 empty = 0 	 din = 15 	 dout = 58 	
+# [1540000] [SCO] Checking
+# [SCO] rd = 0 	 wr = 0 	 full = 0 	 empty = 0 	 din = 15 	 dout = 58 	
+# ----------------------------------------------------
+# --------------------------------------------------------------------
+# [1540000] [GEN] Send Data to Driver
+# [GEN] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 130 	 dout = 0 	
+# [1580000] [DRV] Apply data to DUT
+# [DRV] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 130 	 dout = 0 	
+# [1620000] [MON] SAMPLED DUT
+# [MON] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 130 	 dout = 58 	
+# [1620000] [SCO] Checking
+# [SCO] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 130 	 dout = 58 	
+# ----------------------------------------------------
+# --------------------------------------------------------------------
+# [1620000] [GEN] Send Data to Driver
+# [GEN] rd = 0 	 wr = 1 	 full = 0 	 empty = 0 	 din = 6 	 dout = 0 	
+# [1660000] [DRV] Apply data to DUT
+# [DRV] rd = 0 	 wr = 1 	 full = 0 	 empty = 0 	 din = 6 	 dout = 0 	
+# [1700000] [MON] SAMPLED DUT
+# [MON] rd = 0 	 wr = 1 	 full = 0 	 empty = 1 	 din = 6 	 dout = 139 	
+# [1700000] [SCO] Checking
+# [SCO] rd = 0 	 wr = 1 	 full = 0 	 empty = 1 	 din = 6 	 dout = 139 	
+# [SCO] REF WRITE 6 (depth=1)
+# [SCO] READ MATCH exp=139 act=139
+# ----------------------------------------------------
+# --------------------------------------------------------------------
+# [1700000] [GEN] Send Data to Driver
+# [GEN] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 133 	 dout = 0 	
+# [1740000] [DRV] Apply data to DUT
+# [DRV] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 133 	 dout = 0 	
+# [1780000] [MON] SAMPLED DUT
+# [MON] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 133 	 dout = 139 	
+# [1780000] [SCO] Checking
+# [SCO] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 133 	 dout = 139 	
+# ----------------------------------------------------
+# --------------------------------------------------------------------
+# [1780000] [GEN] Send Data to Driver
+# [GEN] rd = 0 	 wr = 1 	 full = 0 	 empty = 0 	 din = 25 	 dout = 0 	
+# [1820000] [DRV] Apply data to DUT
+# [DRV] rd = 0 	 wr = 1 	 full = 0 	 empty = 0 	 din = 25 	 dout = 0 	
+# [1860000] [MON] SAMPLED DUT
+# [MON] rd = 0 	 wr = 1 	 full = 0 	 empty = 1 	 din = 25 	 dout = 6 	
+# [1860000] [SCO] Checking
+# [SCO] rd = 0 	 wr = 1 	 full = 0 	 empty = 1 	 din = 25 	 dout = 6 	
+# [SCO] REF WRITE 25 (depth=1)
+# [SCO] READ MATCH exp=6 act=6
+# ----------------------------------------------------
+# --------------------------------------------------------------------
+# [1860000] [GEN] Send Data to Driver
+# [GEN] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 156 	 dout = 0 	
+# [1900000] [DRV] Apply data to DUT
+# [DRV] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 156 	 dout = 0 	
+# [1940000] [MON] SAMPLED DUT
+# [MON] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 156 	 dout = 6 	
+# [1940000] [SCO] Checking
+# [SCO] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 156 	 dout = 6 	
+# ----------------------------------------------------
+# --------------------------------------------------------------------
+# [1940000] [GEN] Send Data to Driver
+# [GEN] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 16 	 dout = 0 	
+# [1980000] [DRV] Apply data to DUT
+# [DRV] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 16 	 dout = 0 	
+# [2020000] [MON] SAMPLED DUT
+# [MON] rd = 1 	 wr = 0 	 full = 0 	 empty = 1 	 din = 16 	 dout = 25 	
+# [2020000] [SCO] Checking
+# [SCO] rd = 1 	 wr = 0 	 full = 0 	 empty = 1 	 din = 16 	 dout = 25 	
+# [SCO] READ MATCH exp=25 act=25
+# [SCO] INFO: Read attempted while FIFO empty
+# ----------------------------------------------------
+# --------------------------------------------------------------------
+# [2020000] [GEN] Send Data to Driver
+# [GEN] rd = 0 	 wr = 0 	 full = 0 	 empty = 0 	 din = 151 	 dout = 0 	
+# [2060000] [DRV] Apply data to DUT
+# [DRV] rd = 0 	 wr = 0 	 full = 0 	 empty = 0 	 din = 151 	 dout = 0 	
+# [2100000] [MON] SAMPLED DUT
+# [MON] rd = 0 	 wr = 0 	 full = 0 	 empty = 1 	 din = 151 	 dout = 25 	
+# [2100000] [SCO] Checking
+# [SCO] rd = 0 	 wr = 0 	 full = 0 	 empty = 1 	 din = 151 	 dout = 25 	
+# ----------------------------------------------------
+# --------------------------------------------------------------------
+# [2100000] [GEN] Send Data to Driver
+# [GEN] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 107 	 dout = 0 	
+# [2140000] [DRV] Apply data to DUT
+# [DRV] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 107 	 dout = 0 	
+# [2180000] [MON] SAMPLED DUT
+# [MON] rd = 1 	 wr = 0 	 full = 0 	 empty = 1 	 din = 107 	 dout = 25 	
+# [2180000] [SCO] Checking
+# [SCO] rd = 1 	 wr = 0 	 full = 0 	 empty = 1 	 din = 107 	 dout = 25 	
+# [SCO] INFO: Read attempted while FIFO empty
+# ----------------------------------------------------
+# --------------------------------------------------------------------
+# [2180000] [GEN] Send Data to Driver
+# [GEN] rd = 0 	 wr = 1 	 full = 0 	 empty = 0 	 din = 238 	 dout = 0 	
+# [2220000] [DRV] Apply data to DUT
+# [DRV] rd = 0 	 wr = 1 	 full = 0 	 empty = 0 	 din = 238 	 dout = 0 	
+# [2260000] [MON] SAMPLED DUT
+# [MON] rd = 0 	 wr = 1 	 full = 0 	 empty = 1 	 din = 238 	 dout = 25 	
+# [2260000] [SCO] Checking
+# [SCO] rd = 0 	 wr = 1 	 full = 0 	 empty = 1 	 din = 238 	 dout = 25 	
+# [SCO] REF WRITE 238 (depth=1)
+# ----------------------------------------------------
+# --------------------------------------------------------------------
+# [2260000] [GEN] Send Data to Driver
+# [GEN] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 98 	 dout = 0 	
+# [2300000] [DRV] Apply data to DUT
+# [DRV] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 98 	 dout = 0 	
+# [2340000] [MON] SAMPLED DUT
+# [MON] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 98 	 dout = 25 	
+# [2340000] [SCO] Checking
+# [SCO] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 98 	 dout = 25 	
+# ----------------------------------------------------
+# --------------------------------------------------------------------
+# [2340000] [GEN] Send Data to Driver
+# [GEN] rd = 0 	 wr = 0 	 full = 0 	 empty = 0 	 din = 225 	 dout = 0 	
+# [2380000] [DRV] Apply data to DUT
+# [DRV] rd = 0 	 wr = 0 	 full = 0 	 empty = 0 	 din = 225 	 dout = 0 	
+# [2420000] [MON] SAMPLED DUT
+# [MON] rd = 0 	 wr = 0 	 full = 0 	 empty = 1 	 din = 225 	 dout = 238 	
+# [2420000] [SCO] Checking
+# [SCO] rd = 0 	 wr = 0 	 full = 0 	 empty = 1 	 din = 225 	 dout = 238 	
+# [SCO] READ MATCH exp=238 act=238
+# ----------------------------------------------------
+# --------------------------------------------------------------------
+# [2420000] [GEN] Send Data to Driver
+# [GEN] rd = 0 	 wr = 0 	 full = 0 	 empty = 0 	 din = 101 	 dout = 0 	
+# [2460000] [DRV] Apply data to DUT
+# [DRV] rd = 0 	 wr = 0 	 full = 0 	 empty = 0 	 din = 101 	 dout = 0 	
+# [2500000] [MON] SAMPLED DUT
+# [MON] rd = 0 	 wr = 0 	 full = 0 	 empty = 1 	 din = 101 	 dout = 238 	
+# [2500000] [SCO] Checking
+# [SCO] rd = 0 	 wr = 0 	 full = 0 	 empty = 1 	 din = 101 	 dout = 238 	
+# ----------------------------------------------------
+# --------------------------------------------------------------------
+# [2500000] [GEN] Send Data to Driver
+# [GEN] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 248 	 dout = 0 	
+# [2540000] [DRV] Apply data to DUT
+# [DRV] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 248 	 dout = 0 	
+# [2580000] [MON] SAMPLED DUT
+# [MON] rd = 1 	 wr = 0 	 full = 0 	 empty = 1 	 din = 248 	 dout = 238 	
+# [2580000] [SCO] Checking
+# [SCO] rd = 1 	 wr = 0 	 full = 0 	 empty = 1 	 din = 248 	 dout = 238 	
+# [SCO] INFO: Read attempted while FIFO empty
+# ----------------------------------------------------
+# --------------------------------------------------------------------
+# [2580000] [GEN] Send Data to Driver
+# [GEN] rd = 0 	 wr = 1 	 full = 0 	 empty = 0 	 din = 124 	 dout = 0 	
+# [2620000] [DRV] Apply data to DUT
+# [DRV] rd = 0 	 wr = 1 	 full = 0 	 empty = 0 	 din = 124 	 dout = 0 	
+# [2660000] [MON] SAMPLED DUT
+# [MON] rd = 0 	 wr = 1 	 full = 0 	 empty = 1 	 din = 124 	 dout = 238 	
+# [2660000] [SCO] Checking
+# [SCO] rd = 0 	 wr = 1 	 full = 0 	 empty = 1 	 din = 124 	 dout = 238 	
+# [SCO] REF WRITE 124 (depth=1)
+# ----------------------------------------------------
+# --------------------------------------------------------------------
+# [2660000] [GEN] Send Data to Driver
+# [GEN] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 243 	 dout = 0 	
+# [2700000] [DRV] Apply data to DUT
+# [DRV] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 243 	 dout = 0 	
+# [2740000] [MON] SAMPLED DUT
+# [MON] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 243 	 dout = 238 	
+# [2740000] [SCO] Checking
+# [SCO] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 243 	 dout = 238 	
+# ----------------------------------------------------
+# --------------------------------------------------------------------
+# [2740000] [GEN] Send Data to Driver
+# [GEN] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 119 	 dout = 0 	
+# [2780000] [DRV] Apply data to DUT
+# [DRV] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 119 	 dout = 0 	
+# [2820000] [MON] SAMPLED DUT
+# [MON] rd = 1 	 wr = 0 	 full = 0 	 empty = 1 	 din = 119 	 dout = 124 	
+# [2820000] [SCO] Checking
+# [SCO] rd = 1 	 wr = 0 	 full = 0 	 empty = 1 	 din = 119 	 dout = 124 	
+# [SCO] READ MATCH exp=124 act=124
+# [SCO] INFO: Read attempted while FIFO empty
+# ----------------------------------------------------
+# --------------------------------------------------------------------
+# [2820000] [GEN] Send Data to Driver
+# [GEN] rd = 0 	 wr = 0 	 full = 0 	 empty = 0 	 din = 202 	 dout = 0 	
+# [2860000] [DRV] Apply data to DUT
+# [DRV] rd = 0 	 wr = 0 	 full = 0 	 empty = 0 	 din = 202 	 dout = 0 	
+# [2900000] [MON] SAMPLED DUT
+# [MON] rd = 0 	 wr = 0 	 full = 0 	 empty = 1 	 din = 202 	 dout = 124 	
+# [2900000] [SCO] Checking
+# [SCO] rd = 0 	 wr = 0 	 full = 0 	 empty = 1 	 din = 202 	 dout = 124 	
+# ----------------------------------------------------
+# --------------------------------------------------------------------
+# [2900000] [GEN] Send Data to Driver
+# [GEN] rd = 0 	 wr = 1 	 full = 0 	 empty = 0 	 din = 78 	 dout = 0 	
+# [2940000] [DRV] Apply data to DUT
+# [DRV] rd = 0 	 wr = 1 	 full = 0 	 empty = 0 	 din = 78 	 dout = 0 	
+# [2980000] [MON] SAMPLED DUT
+# [MON] rd = 0 	 wr = 1 	 full = 0 	 empty = 1 	 din = 78 	 dout = 124 	
+# [2980000] [SCO] Checking
+# [SCO] rd = 0 	 wr = 1 	 full = 0 	 empty = 1 	 din = 78 	 dout = 124 	
+# [SCO] REF WRITE 78 (depth=1)
+# ----------------------------------------------------
+# --------------------------------------------------------------------
+# [2980000] [GEN] Send Data to Driver
+# [GEN] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 205 	 dout = 0 	
+# [3020000] [DRV] Apply data to DUT
+# [DRV] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 205 	 dout = 0 	
+# [3060000] [MON] SAMPLED DUT
+# [MON] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 205 	 dout = 124 	
+# [3060000] [SCO] Checking
+# [SCO] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 205 	 dout = 124 	
+# ----------------------------------------------------
+# --------------------------------------------------------------------
+# [3060000] [GEN] Send Data to Driver
+# [GEN] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 65 	 dout = 0 	
+# [3100000] [DRV] Apply data to DUT
+# [DRV] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 65 	 dout = 0 	
+# [3140000] [MON] SAMPLED DUT
+# [MON] rd = 1 	 wr = 0 	 full = 0 	 empty = 1 	 din = 65 	 dout = 78 	
+# [3140000] [SCO] Checking
+# [SCO] rd = 1 	 wr = 0 	 full = 0 	 empty = 1 	 din = 65 	 dout = 78 	
+# [SCO] READ MATCH exp=78 act=78
+# [SCO] INFO: Read attempted while FIFO empty
+# ----------------------------------------------------
+# --------------------------------------------------------------------
+# [3140000] [GEN] Send Data to Driver
+# [GEN] rd = 0 	 wr = 1 	 full = 0 	 empty = 0 	 din = 196 	 dout = 0 	
+# [3180000] [DRV] Apply data to DUT
+# [DRV] rd = 0 	 wr = 1 	 full = 0 	 empty = 0 	 din = 196 	 dout = 0 	
+# [3220000] [MON] SAMPLED DUT
+# [MON] rd = 0 	 wr = 1 	 full = 0 	 empty = 1 	 din = 196 	 dout = 78 	
+# [3220000] [SCO] Checking
+# [SCO] rd = 0 	 wr = 1 	 full = 0 	 empty = 1 	 din = 196 	 dout = 78 	
+# [SCO] REF WRITE 196 (depth=1)
+# ----------------------------------------------------
+# --------------------------------------------------------------------
+# [3220000] [GEN] Send Data to Driver
+# [GEN] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 88 	 dout = 0 	
+# [3260000] [DRV] Apply data to DUT
+# [DRV] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 88 	 dout = 0 	
+# [3300000] [MON] SAMPLED DUT
+# [MON] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 88 	 dout = 78 	
+# [3300000] [SCO] Checking
+# [SCO] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 88 	 dout = 78 	
+# ----------------------------------------------------
+# --------------------------------------------------------------------
+# [3300000] [GEN] Send Data to Driver
+# [GEN] rd = 0 	 wr = 0 	 full = 0 	 empty = 0 	 din = 223 	 dout = 0 	
+# [3340000] [DRV] Apply data to DUT
+# [DRV] rd = 0 	 wr = 0 	 full = 0 	 empty = 0 	 din = 223 	 dout = 0 	
+# [3380000] [MON] SAMPLED DUT
+# [MON] rd = 0 	 wr = 0 	 full = 0 	 empty = 1 	 din = 223 	 dout = 196 	
+# [3380000] [SCO] Checking
+# [SCO] rd = 0 	 wr = 0 	 full = 0 	 empty = 1 	 din = 223 	 dout = 196 	
+# [SCO] READ MATCH exp=196 act=196
+# ----------------------------------------------------
+# --------------------------------------------------------------------
+# [3380000] [GEN] Send Data to Driver
+# [GEN] rd = 0 	 wr = 0 	 full = 0 	 empty = 0 	 din = 83 	 dout = 0 	
+# [3420000] [DRV] Apply data to DUT
+# [DRV] rd = 0 	 wr = 0 	 full = 0 	 empty = 0 	 din = 83 	 dout = 0 	
+# [3460000] [MON] SAMPLED DUT
+# [MON] rd = 0 	 wr = 0 	 full = 0 	 empty = 1 	 din = 83 	 dout = 196 	
+# [3460000] [SCO] Checking
+# [SCO] rd = 0 	 wr = 0 	 full = 0 	 empty = 1 	 din = 83 	 dout = 196 	
+# ----------------------------------------------------
+# --------------------------------------------------------------------
+# [3460000] [GEN] Send Data to Driver
+# [GEN] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 214 	 dout = 0 	
+# [3500000] [DRV] Apply data to DUT
+# [DRV] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 214 	 dout = 0 	
+# [3540000] [MON] SAMPLED DUT
+# [MON] rd = 1 	 wr = 0 	 full = 0 	 empty = 1 	 din = 214 	 dout = 196 	
+# [3540000] [SCO] Checking
+# [SCO] rd = 1 	 wr = 0 	 full = 0 	 empty = 1 	 din = 214 	 dout = 196 	
+# [SCO] INFO: Read attempted while FIFO empty
+# ----------------------------------------------------
+# --------------------------------------------------------------------
+# [3540000] [GEN] Send Data to Driver
+# [GEN] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 41 	 dout = 0 	
+# [3580000] [DRV] Apply data to DUT
+# [DRV] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 41 	 dout = 0 	
+# [3620000] [MON] SAMPLED DUT
+# [MON] rd = 1 	 wr = 0 	 full = 0 	 empty = 1 	 din = 41 	 dout = 196 	
+# [3620000] [SCO] Checking
+# [SCO] rd = 1 	 wr = 0 	 full = 0 	 empty = 1 	 din = 41 	 dout = 196 	
+# [SCO] INFO: Read attempted while FIFO empty
+# ----------------------------------------------------
+# --------------------------------------------------------------------
+# [3620000] [GEN] Send Data to Driver
+# [GEN] rd = 0 	 wr = 1 	 full = 0 	 empty = 0 	 din = 172 	 dout = 0 	
+# [3660000] [DRV] Apply data to DUT
+# [DRV] rd = 0 	 wr = 1 	 full = 0 	 empty = 0 	 din = 172 	 dout = 0 	
+# [3700000] [MON] SAMPLED DUT
+# [MON] rd = 0 	 wr = 1 	 full = 0 	 empty = 1 	 din = 172 	 dout = 196 	
+# [3700000] [SCO] Checking
+# [SCO] rd = 0 	 wr = 1 	 full = 0 	 empty = 1 	 din = 172 	 dout = 196 	
+# [SCO] REF WRITE 172 (depth=1)
+# ----------------------------------------------------
+# --------------------------------------------------------------------
+# [3700000] [GEN] Send Data to Driver
+# [GEN] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 32 	 dout = 0 	
+# [3740000] [DRV] Apply data to DUT
+# [DRV] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 32 	 dout = 0 	
+# [3780000] [MON] SAMPLED DUT
+# [MON] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 32 	 dout = 196 	
+# [3780000] [SCO] Checking
+# [SCO] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 32 	 dout = 196 	
+# ----------------------------------------------------
+# --------------------------------------------------------------------
+# [3780000] [GEN] Send Data to Driver
+# [GEN] rd = 0 	 wr = 1 	 full = 0 	 empty = 0 	 din = 167 	 dout = 0 	
+# [3820000] [DRV] Apply data to DUT
+# [DRV] rd = 0 	 wr = 1 	 full = 0 	 empty = 0 	 din = 167 	 dout = 0 	
+# [3860000] [MON] SAMPLED DUT
+# [MON] rd = 0 	 wr = 1 	 full = 0 	 empty = 1 	 din = 167 	 dout = 172 	
+# [3860000] [SCO] Checking
+# [SCO] rd = 0 	 wr = 1 	 full = 0 	 empty = 1 	 din = 167 	 dout = 172 	
+# [SCO] REF WRITE 167 (depth=1)
+# [SCO] READ MATCH exp=172 act=172
+# ----------------------------------------------------
+# --------------------------------------------------------------------
+# [3860000] [GEN] Send Data to Driver
+# [GEN] rd = 0 	 wr = 0 	 full = 0 	 empty = 0 	 din = 59 	 dout = 0 	
+# [3900000] [DRV] Apply data to DUT
+# [DRV] rd = 0 	 wr = 0 	 full = 0 	 empty = 0 	 din = 59 	 dout = 0 	
+# [3940000] [MON] SAMPLED DUT
+# [MON] rd = 0 	 wr = 0 	 full = 0 	 empty = 0 	 din = 59 	 dout = 172 	
+# [3940000] [SCO] Checking
+# [SCO] rd = 0 	 wr = 0 	 full = 0 	 empty = 0 	 din = 59 	 dout = 172 	
+# ----------------------------------------------------
+# --------------------------------------------------------------------
+# [3940000] [GEN] Send Data to Driver
+# [GEN] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 190 	 dout = 0 	
+# [3980000] [DRV] Apply data to DUT
+# [DRV] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 190 	 dout = 0 	
+# [4020000] [MON] SAMPLED DUT
+# [MON] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 190 	 dout = 172 	
+# [4020000] [SCO] Checking
+# [SCO] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 190 	 dout = 172 	
+# ----------------------------------------------------
+# --------------------------------------------------------------------
+# [4020000] [GEN] Send Data to Driver
+# [GEN] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 50 	 dout = 0 	
+# [4060000] [DRV] Apply data to DUT
+# [DRV] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 50 	 dout = 0 	
+# [4100000] [MON] SAMPLED DUT
+# [MON] rd = 1 	 wr = 0 	 full = 0 	 empty = 1 	 din = 50 	 dout = 167 	
+# [4100000] [SCO] Checking
+# [SCO] rd = 1 	 wr = 0 	 full = 0 	 empty = 1 	 din = 50 	 dout = 167 	
+# [SCO] READ MATCH exp=167 act=167
+# [SCO] INFO: Read attempted while FIFO empty
+# ----------------------------------------------------
+# --------------------------------------------------------------------
+# [4100000] [GEN] Send Data to Driver
+# [GEN] rd = 0 	 wr = 1 	 full = 0 	 empty = 0 	 din = 177 	 dout = 0 	
+# [4140000] [DRV] Apply data to DUT
+# [DRV] rd = 0 	 wr = 1 	 full = 0 	 empty = 0 	 din = 177 	 dout = 0 	
+# [4180000] [MON] SAMPLED DUT
+# [MON] rd = 0 	 wr = 1 	 full = 0 	 empty = 1 	 din = 177 	 dout = 167 	
+# [4180000] [SCO] Checking
+# [SCO] rd = 0 	 wr = 1 	 full = 0 	 empty = 1 	 din = 177 	 dout = 167 	
+# [SCO] REF WRITE 177 (depth=1)
+# ----------------------------------------------------
+# --------------------------------------------------------------------
+# [4180000] [GEN] Send Data to Driver
+# [GEN] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 53 	 dout = 0 	
+# [4220000] [DRV] Apply data to DUT
+# [DRV] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 53 	 dout = 0 	
+# [4260000] [MON] SAMPLED DUT
+# [MON] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 53 	 dout = 167 	
+# [4260000] [SCO] Checking
+# [SCO] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 53 	 dout = 167 	
+# ----------------------------------------------------
+# --------------------------------------------------------------------
+# [4260000] [GEN] Send Data to Driver
+# [GEN] rd = 0 	 wr = 0 	 full = 0 	 empty = 0 	 din = 136 	 dout = 0 	
+# [4300000] [DRV] Apply data to DUT
+# [DRV] rd = 0 	 wr = 0 	 full = 0 	 empty = 0 	 din = 136 	 dout = 0 	
+# [4340000] [MON] SAMPLED DUT
+# [MON] rd = 0 	 wr = 0 	 full = 0 	 empty = 1 	 din = 136 	 dout = 177 	
+# [4340000] [SCO] Checking
+# [SCO] rd = 0 	 wr = 0 	 full = 0 	 empty = 1 	 din = 136 	 dout = 177 	
+# [SCO] READ MATCH exp=177 act=177
+# ----------------------------------------------------
+# --------------------------------------------------------------------
+# [4340000] [GEN] Send Data to Driver
+# [GEN] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 12 	 dout = 0 	
+# [4380000] [DRV] Apply data to DUT
+# [DRV] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 12 	 dout = 0 	
+# [4420000] [MON] SAMPLED DUT
+# [MON] rd = 1 	 wr = 0 	 full = 0 	 empty = 1 	 din = 12 	 dout = 177 	
+# [4420000] [SCO] Checking
+# [SCO] rd = 1 	 wr = 0 	 full = 0 	 empty = 1 	 din = 12 	 dout = 177 	
+# [SCO] INFO: Read attempted while FIFO empty
+# ----------------------------------------------------
+# --------------------------------------------------------------------
+# [4420000] [GEN] Send Data to Driver
+# [GEN] rd = 0 	 wr = 0 	 full = 0 	 empty = 0 	 din = 131 	 dout = 0 	
+# [4460000] [DRV] Apply data to DUT
+# [DRV] rd = 0 	 wr = 0 	 full = 0 	 empty = 0 	 din = 131 	 dout = 0 	
+# [4500000] [MON] SAMPLED DUT
+# [MON] rd = 0 	 wr = 0 	 full = 0 	 empty = 1 	 din = 131 	 dout = 177 	
+# [4500000] [SCO] Checking
+# [SCO] rd = 0 	 wr = 0 	 full = 0 	 empty = 1 	 din = 131 	 dout = 177 	
+# ----------------------------------------------------
+# --------------------------------------------------------------------
+# [4500000] [GEN] Send Data to Driver
+# [GEN] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 7 	 dout = 0 	
+# [4540000] [DRV] Apply data to DUT
+# [DRV] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 7 	 dout = 0 	
+# [4580000] [MON] SAMPLED DUT
+# [MON] rd = 1 	 wr = 0 	 full = 0 	 empty = 1 	 din = 7 	 dout = 177 	
+# [4580000] [SCO] Checking
+# [SCO] rd = 1 	 wr = 0 	 full = 0 	 empty = 1 	 din = 7 	 dout = 177 	
+# [SCO] INFO: Read attempted while FIFO empty
+# ----------------------------------------------------
+# --------------------------------------------------------------------
+# [4580000] [GEN] Send Data to Driver
+# [GEN] rd = 0 	 wr = 1 	 full = 0 	 empty = 0 	 din = 154 	 dout = 0 	
+# [4620000] [DRV] Apply data to DUT
+# [DRV] rd = 0 	 wr = 1 	 full = 0 	 empty = 0 	 din = 154 	 dout = 0 	
+# [4660000] [MON] SAMPLED DUT
+# [MON] rd = 0 	 wr = 1 	 full = 0 	 empty = 1 	 din = 154 	 dout = 177 	
+# [4660000] [SCO] Checking
+# [SCO] rd = 0 	 wr = 1 	 full = 0 	 empty = 1 	 din = 154 	 dout = 177 	
+# [SCO] REF WRITE 154 (depth=1)
+# ----------------------------------------------------
+# --------------------------------------------------------------------
+# [4660000] [GEN] Send Data to Driver
+# [GEN] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 30 	 dout = 0 	
+# [4700000] [DRV] Apply data to DUT
+# [DRV] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 30 	 dout = 0 	
+# [4740000] [MON] SAMPLED DUT
+# [MON] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 30 	 dout = 177 	
+# [4740000] [SCO] Checking
+# [SCO] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 30 	 dout = 177 	
+# ----------------------------------------------------
+# --------------------------------------------------------------------
+# [4740000] [GEN] Send Data to Driver
+# [GEN] rd = 0 	 wr = 0 	 full = 0 	 empty = 0 	 din = 157 	 dout = 0 	
+# [4780000] [DRV] Apply data to DUT
+# [DRV] rd = 0 	 wr = 0 	 full = 0 	 empty = 0 	 din = 157 	 dout = 0 	
+# [4820000] [MON] SAMPLED DUT
+# [MON] rd = 0 	 wr = 0 	 full = 0 	 empty = 1 	 din = 157 	 dout = 154 	
+# [4820000] [SCO] Checking
+# [SCO] rd = 0 	 wr = 0 	 full = 0 	 empty = 1 	 din = 157 	 dout = 154 	
+# [SCO] READ MATCH exp=154 act=154
+# ----------------------------------------------------
+# --------------------------------------------------------------------
+# [4820000] [GEN] Send Data to Driver
+# [GEN] rd = 0 	 wr = 1 	 full = 0 	 empty = 0 	 din = 17 	 dout = 0 	
+# [4860000] [DRV] Apply data to DUT
+# [DRV] rd = 0 	 wr = 1 	 full = 0 	 empty = 0 	 din = 17 	 dout = 0 	
+# [4900000] [MON] SAMPLED DUT
+# [MON] rd = 0 	 wr = 1 	 full = 0 	 empty = 1 	 din = 17 	 dout = 154 	
+# [4900000] [SCO] Checking
+# [SCO] rd = 0 	 wr = 1 	 full = 0 	 empty = 1 	 din = 17 	 dout = 154 	
+# [SCO] REF WRITE 17 (depth=1)
+# ----------------------------------------------------
+# --------------------------------------------------------------------
+# [4900000] [GEN] Send Data to Driver
+# [GEN] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 148 	 dout = 0 	
+# [4940000] [DRV] Apply data to DUT
+# [DRV] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 148 	 dout = 0 	
+# [4980000] [MON] SAMPLED DUT
+# [MON] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 148 	 dout = 154 	
+# [4980000] [SCO] Checking
+# [SCO] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 148 	 dout = 154 	
+# ----------------------------------------------------
+# --------------------------------------------------------------------
+# [4980000] [GEN] Send Data to Driver
+# [GEN] rd = 0 	 wr = 0 	 full = 0 	 empty = 0 	 din = 104 	 dout = 0 	
+# [5020000] [DRV] Apply data to DUT
+# [DRV] rd = 0 	 wr = 0 	 full = 0 	 empty = 0 	 din = 104 	 dout = 0 	
+# [5060000] [MON] SAMPLED DUT
+# [MON] rd = 0 	 wr = 0 	 full = 0 	 empty = 1 	 din = 104 	 dout = 17 	
+# [5060000] [SCO] Checking
+# [SCO] rd = 0 	 wr = 0 	 full = 0 	 empty = 1 	 din = 104 	 dout = 17 	
+# [SCO] READ MATCH exp=17 act=17
+# ----------------------------------------------------
+# --------------------------------------------------------------------
+# [5060000] [GEN] Send Data to Driver
+# [GEN] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 239 	 dout = 0 	
+# [5100000] [DRV] Apply data to DUT
+# [DRV] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 239 	 dout = 0 	
+# [5140000] [MON] SAMPLED DUT
+# [MON] rd = 1 	 wr = 0 	 full = 0 	 empty = 1 	 din = 239 	 dout = 17 	
+# [5140000] [SCO] Checking
+# [SCO] rd = 1 	 wr = 0 	 full = 0 	 empty = 1 	 din = 239 	 dout = 17 	
+# [SCO] INFO: Read attempted while FIFO empty
+# ----------------------------------------------------
+# --------------------------------------------------------------------
+# [5140000] [GEN] Send Data to Driver
+# [GEN] rd = 0 	 wr = 1 	 full = 0 	 empty = 0 	 din = 99 	 dout = 0 	
+# [5180000] [DRV] Apply data to DUT
+# [DRV] rd = 0 	 wr = 1 	 full = 0 	 empty = 0 	 din = 99 	 dout = 0 	
+# [5220000] [MON] SAMPLED DUT
+# [MON] rd = 0 	 wr = 1 	 full = 0 	 empty = 1 	 din = 99 	 dout = 17 	
+# [5220000] [SCO] Checking
+# [SCO] rd = 0 	 wr = 1 	 full = 0 	 empty = 1 	 din = 99 	 dout = 17 	
+# [SCO] REF WRITE 99 (depth=1)
+# ----------------------------------------------------
+# --------------------------------------------------------------------
+# [5220000] [GEN] Send Data to Driver
+# [GEN] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 230 	 dout = 0 	
+# [5260000] [DRV] Apply data to DUT
+# [DRV] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 230 	 dout = 0 	
+# [5300000] [MON] SAMPLED DUT
+# [MON] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 230 	 dout = 17 	
+# [5300000] [SCO] Checking
+# [SCO] rd = 1 	 wr = 0 	 full = 0 	 empty = 0 	 din = 230 	 dout = 17 	
+# ----------------------------------------------------
+# ** Note: $finish    : D:/ghost/Digital/Verification/Udemy - SystemVerilog for Verification Part 2  Projects 2022-9/MINE/FIFO/FIFO_tb.sv(265)
+#    Time: 5300 ns  Iteration: 4  Instance: /FIFO_tb
+# 1
+# Break in Task FIFO_tb_sv_unit/enviroment::test at D:/ghost/Digital/Verification/Udemy - SystemVerilog for Verification Part 2  Projects 2022-9/MINE/FIFO/FIFO_tb.sv line 265
+# End time: 00:53:42 on Jan 23,2026, Elapsed time: 6:26:18
+# Errors: 7, Warnings: 0
