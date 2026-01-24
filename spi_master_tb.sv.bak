@@ -1,0 +1,229 @@
+parameter bit_width = 12;
+parameter divider   = 100;
+interface spi_if #(parameter bit_width = 12, divider = 100); // @suppress "File contains multiple design units"
+    logic clk;
+    logic rst_n;
+    logic start;
+    logic [bit_width-1:0] tx_data;
+    logic MOSI;
+    logic cs_n;
+    logic sclk;
+    
+    modport master (
+        input clk, rst_n, tx_data, start,
+        output MOSI, cs_n, sclk
+    );
+endinterface : spi_if
+
+class transaction;
+    randc bit start;
+    randc bit [bit_width-1:0] tx_data;
+    bit       [bit_width-1:0] MOSI;
+    bit cs_n;
+    bit sclk;
+
+    function transaction copy();
+        copy = new();
+        copy.start   = this.start;
+        copy.tx_data = this.tx_data;
+        copy.MOSI    = this.MOSI;
+        copy.cs_n    = this.cs_n;
+        copy.sclk    = this.sclk;
+    endfunction
+
+    function void display(input string tag);
+        $display("[%0s] clk: %0b, rst_n: %0b, start: %0b, tx_data: %0h, MOSI: %0b, cs_n: %0b, sclk: %0b",tag,
+                  start, tx_data, MOSI, cs_n, sclk);
+    endfunction
+
+    constraint start_c {
+        start dist { 0 :/ 10 , 1:/ 90 };
+    } 
+
+endclass
+
+class GENERATOR;
+
+    transaction tr;
+    mailbox #(transaction) mbx;
+    event sconext;
+    event done;
+    
+    function new(mailbox #(transaction) mbx_in);
+        mbx = mbx_in;
+        tr  = new();
+    endfunction
+
+    task run;
+        repeat (2**bit_width -1) begin
+            assert(tr.randomize()) else $fatal("Randomization failed");
+            mbx.put(tr.copy());
+            $display("[GEN] [%0t]: SEND transaction to driver", $time);
+            @(sconext);
+        end
+        -> done;
+    endtask
+
+endclass
+
+class DIVIDER;
+
+    virtual spi_if spi;
+    transaction tr;
+    mailbox #(transaction) mbx;
+    function new(mailbox #(transaction) mbx_in);
+        mbx = mbx_in;
+        tr  = new();
+    endfunction
+
+    task run;
+        forever begin
+            mbx.get(tr);
+            $display("[DIV] [%0t]: RECEIVE transaction from generator", $time);
+            // drive interface signals
+            spi.start   <= tr.start;
+            spi.tx_data <= tr.tx_data;
+            // wait for some time to simulate delay
+            #(divider*bit_width*2);
+        end
+    endtask
+endclass
+
+class monitor;
+    virtual spi_if spi;
+    transaction tr;
+    mailbox #(transaction) mbx;
+    
+    function new(mailbox #(transaction) mbx_in);
+        mbx = mbx_in;
+        tr  = new();
+    endfunction
+    
+    task run;
+        forever begin
+            bit [bit_width-1:0] captured_mosi;
+            
+            @(negedge spi.cs_n);
+            tr.tx_data = spi.tx_data;  // Capture what was sent
+            
+            for (int i = 0; i < bit_width; i++) begin
+                @(negedge spi.sclk);
+                captured_mosi[bit_width-1-i] = spi.MOSI;
+            end
+            
+            tr.MOSI = captured_mosi;
+            mbx.put(tr.copy());
+            $display("[MON] [%0t]: Captured tx_data: %0h, MOSI: %0h", $time, tr.tx_data, captured_mosi);
+        end
+    endtask
+endclass
+
+    
+
+class scoreboard;
+    transaction tr;
+    mailbox #(transaction) mbx;
+    event sconext;
+
+    function new(mailbox #(transaction) mbx_in);
+        mbx = mbx_in;
+        tr  = new();
+    endfunction
+    task run;
+        forever begin
+            mbx.get(tr);
+            $display("[SB] [%0t]: Expected: %0h, Got: %0h", $time, tr.tx_data, tr.MOSI);
+            assert(tr.MOSI == tr.tx_data) else $fatal("MOSI mismatch");
+            -> sconext; 
+        end
+    endtask
+endclass
+
+
+
+class environment;
+
+    GENERATOR gen;
+    DIVIDER div;
+    monitor mon;
+    scoreboard sb;
+    mailbox #(transaction) g2d_mbx;
+    mailbox #(transaction) m2s_mbx;
+    virtual spi_if spi;
+    event sconext;
+
+    function new();
+        g2d_mbx = new();
+        m2s_mbx = new();
+        gen      = new(g2d_mbx);
+        div      = new(g2d_mbx);
+        mon      = new(m2s_mbx);
+        sb       = new(m2s_mbx);
+        gen.sconext = sconext;
+        sb.sconext  = sconext;
+        div.spi     = spi;
+        mon.spi     = spi;
+    endfunction
+    
+    task pre_test();
+        spi.rst_n  = 0;
+        repeat (5) @(posedge spi.clk);
+        spi.rst_n  = 1;
+        repeat (2) @(posedge spi.clk);
+        $display("[ENV] [%0t]: Pre-test done [RESET]", $time);
+    endtask
+
+    task test;
+        fork
+            gen.run();
+            div.run();
+            mon.run();
+            sb.run();
+        join_none
+        $dumpfile("spi_master_tb.vcd");
+        $dumpvars(0, spi);
+    endtask
+
+    task post_test();
+        @(gen.done);
+        $display("[ENV] [%0t]: Post-test done [TEST COMPLETE]", $time);
+        $finish;
+    endtask
+
+    task run;
+        pre_test();
+        test();
+        post_test();    
+    endtask
+endclass
+
+module spi_master_tb;
+
+    environment env;
+    spi_if #(bit_width, divider) spi();
+
+    spi_master #(
+        .bit_width(spi.bit_width),
+        .divider(spi.divider)
+    ) spi_master_instance (
+        .clk(spi.clk),
+        .rst_n(spi.rst_n),
+        .start(spi.start),
+        .tx_data(spi.tx_data),
+        .MOSI(spi.MOSI),
+        .cs_n(spi.cs_n),
+        .sclk(spi.sclk)
+    );
+
+    // Clock generation
+    initial begin
+        spi.clk = 0;
+        forever #5 spi.clk = ~spi.clk; // 100MHz clock
+    end
+
+    initial begin
+        env = new();
+        env.spi = spi;
+        env.run();
+    end
+endmodule

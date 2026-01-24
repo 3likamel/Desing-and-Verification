@@ -1,0 +1,94 @@
+module spi_master #(parameter bit_width = 12 , parameter divider = 100) (
+	input clk,
+	input rst_n,
+	input start,
+	input MISO,
+	input [bit_width-1 : 0] tx_data,
+	output MOSI,
+	output reg cs_n,
+	output reg sclk
+);
+
+
+
+
+int clk_cnt = 0;
+localparam int tr_cnt = 0;
+localparam int transfered = 0;
+
+
+reg [bit_width-1:0] tx_reg; 
+
+typedef enum logic [1:0] {idle, transfer, done} e_state;
+e_state cu_state, nx_state;
+
+///// CLK GENERATOR (DIVIDER)
+always_ff @(posedge clk or negedge rst_n) begin : proc_sclk
+	if(~rst_n) begin
+		sclk <= 0;
+		clk_cnt <= 0;
+	end else if (clk_cnt == divider ) begin
+		sclk <= !sclk;
+		clk_cnt <= 0;
+	end else begin
+		clk_cnt <= clk_cnt + 1;
+	end
+end
+
+
+// FSM
+
+always_ff @(posedge clk or negedge rst_n) begin : proc_cu_state
+	if(~rst_n) begin
+		cu_state <= idle;
+	end else begin
+		cu_state <= nx_state;
+	end
+end
+
+always_comb begin : proc_nx_state
+	nx_state = idle;
+	cs_n	 = 1;
+	case (cu_state)
+		idle : begin 
+			if (start) begin
+				nx_state = transfer;
+				cs_n	 = 0;
+			end else begin
+				nx_state = idle;
+				cs_n	 = 1;
+			end			
+		end	
+		transfer: begin
+			cs_n = 0;
+			if (transfered) 
+                nx_state = done;
+            else
+                nx_state = cu_state;
+		end
+        done : begin
+            cs_n = 1;
+            nx_state = idle;
+        end
+		default : nx_state = idle;
+	endcase
+	
+end
+
+
+/// transfere data
+always_ff @(posedge clk) begin
+    tx_reg <= tx_data;
+    if (!cs_n) begin
+        if (tr_cnt == bit_width)
+            transfered = 1;
+        else begin
+            tx_reg <= {tx_reg[bit_width-2:0],1'b0};
+            tr_cnt <= tr_cnt + 1;
+        end
+    end else tr_cnt = 0;
+end
+
+assign MOSI = tx_reg[0];
+
+endmodule

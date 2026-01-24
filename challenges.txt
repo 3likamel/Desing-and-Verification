@@ -1,0 +1,2 @@
+in transfer state the sclk logic shoud be if (count == 7 and cs_n = 0)
+as if not the sclk in the last bit the logic high of it will have very short period and at the monitor when we capture the data will stuck waiting for the last bit as posedge not came
