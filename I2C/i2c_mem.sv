@@ -3,30 +3,36 @@ module i2c_mem #(parameter data_wd = 8, addr_wd = 7) (
     input  wire rst_n,
     input  wire scl,
     inout  wire sda,
-    output reg  ack
+    output wire  ack
 );
 
 reg r_w;
 reg sda_oe; 
 reg sda_out;
-reg sda_in;
+reg [data_wd/2 : 0] bit_cnt;
 reg [addr_wd-1 : 0] addr; 
 reg [data_wd-1 : 0] wdata; 
 reg [data_wd-1 : 0] rdata; 
 reg [data_wd-1 : 0] mem [0 : (1<<addr_wd)-1];
 
+
 typedef enum reg [2:0] {
     start,
     address,
+    down_ack,
     write_data,
     read_data,
+    down_ack2,
     stop
 } state_e ;
 state_e state;
 
 assign sda_oe = (state == read_data);
 assign sda    = sda_oe ? sda_out : 1'bz;
-assign sda_in = sda;
+
+assign ack    = (state == down_ack || state == down_ack2) ? 0 : 1;
+
+
 
 always_ff @(posedge clk or negedge rst_n) begin
     
@@ -35,8 +41,7 @@ always_ff @(posedge clk or negedge rst_n) begin
     rdata   <= 0;
     sda_out <= 0;
     r_w     <= 0;
-    state   <= start;
-    ack     <= 1;
+    bit_cnt <= 0;
 
     if(!rst_n) begin
 
@@ -46,7 +51,7 @@ always_ff @(posedge clk or negedge rst_n) begin
         sda_out <= 0;
         r_w     <= 0;
         state   <= start;
-        ack     <= 1;
+        bit_cnt <= 0;
 
         for (int i = 0 ; i < (1<<addr_wd) ; i++ ) begin
             mem [i] <= '0;
@@ -58,52 +63,78 @@ always_ff @(posedge clk or negedge rst_n) begin
 
             start: begin
                 
-                ack <= 1;
 
-                if (scl && !sda_in)
+                if (scl && !sda)
                     state <= address;
                 else
                     state <= start;
             end
 
             address: begin
+
+                addr  <=  addr;
+                if (bit_cnt == addr_wd) begin
+
+                    r_w <= sda;
+                    bit_cnt <= 0;
+                    state   <= down_ack;
+                    
+                end else begin
+
+                    addr [bit_cnt] <= sda;
+                    bit_cnt <= bit_cnt + 1;
+
+                end    
                 
-                for(int i = 0; i < addr_wd; i++) begin
-                    addr [i] <= sda_in;
-                end
+            end
 
-                r_w <= sda_in;
-
-                if (r_w)
+            down_ack: begin
+                r_w    <= r_w;
+                addr  <=  addr;
+                if (r_w) begin
                     state <= read_data;
+                    rdata <= mem [addr];
+                end
                 else
                     state <= write_data;
 
-                ack <= 0;
-                
             end
             
             read_data: begin
-
-                ack <= 1;
-                rdata <= mem [addr];
-
-                for (int i = 0; i < data_wd; i++)  begin
-                    sda_out <= rdata [i];
-                end            
+                r_w     <= r_w;
+                addr  <=  addr;
+                rdata <= rdata;
                 
-                state <= stop;
+                if (bit_cnt == data_wd) begin
+                    bit_cnt <= 0;
+                    state   <= down_ack2;
+                end else begin
+                    
+                    sda_out <= rdata [bit_cnt];
+                    bit_cnt <= bit_cnt + 1;
+
+                end
+                
+                
             end
 
             write_data: begin
+                r_w     <= r_w;
+                addr  <=  addr;
+                wdata <=  wdata;
+                if (bit_cnt == data_wd) begin
+                    bit_cnt <= 0;
+                    state   <= down_ack2;
+                    wdata <=  wdata;
+                    mem [addr] <= wdata;
+                end else begin
+                    wdata [bit_cnt] <= sda;
+                    bit_cnt <= bit_cnt + 1;
+                end
 
-                ack <=1;
+            end
 
-                for (int i = 0; i < data_wd; i++)  begin
-                    wdata[i] <= sda_in;
-                end 
-
-                mem [addr] <= wdata;
+            down_ack2: begin
 
                 state <= stop;
 
@@ -111,7 +142,6 @@ always_ff @(posedge clk or negedge rst_n) begin
             
             stop: begin
 
-                ack <= 0;
                 state <= start;
 
             end
@@ -123,7 +153,7 @@ always_ff @(posedge clk or negedge rst_n) begin
                 sda_out <= 0;
                 r_w     <= 0;
                 state   <= start;
-                ack     <= 1;
+                bit_cnt <= 0;
             end
             
             
