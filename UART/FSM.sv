@@ -1,142 +1,212 @@
-module FSM (
-    input       clk, rst,
-    input       RX_IN, PAR_EN,
-    input       [3:0] bit_cnt,
-    input       [4:0] edge_cnt,
-    input       [4:0] f_edge,
-    input       par_err, str_glitch, stp_err,
-    output reg  data_samp_en, deser_en, par_chk_en, str_chk_en, stp_chk_en,
-    output reg  enable, 
-    output reg  data_valid
+module FSM(
+	input wire Data_Valid,
+	input wire ser_done,
+	input wire PAR_EN,
+	input CLK ,RST,
+	output reg ser_en,
+	output reg [1:0] mux_sel,
+	output reg busy
 );
-reg par_ok;
-reg stp_ok;
+
 typedef enum logic [2:0] {
-    idle = 3'b000,
-    start = 3'b001,
-    deserializer = 3'b010,
-    parity = 3'b011,
-    stop = 3'b100
-} _state;
+	idle,
+	start,
+	serial,
+	parity,
+	stop
+} state_t;
 
-_state cu_state, nx_state;
+state_t cu_state, nx_state;
 
-always_ff @(posedge clk or negedge rst) begin
-    if (~rst)
-        cu_state <= idle;
-    else if (cu_state == idle && ~RX_IN) begin
-        cu_state <= start;
-    end
-    else
-        cu_state <= nx_state;
-        
+
+
+
+always_ff @(posedge CLK,negedge RST)
+begin
+	if (~RST)
+	begin
+		cu_state <= idle;
+	end
+	else if (cu_state == serial && ser_done)
+	begin
+		if (PAR_EN)
+			cu_state <= parity;
+		else
+			cu_state <= stop;
+	end else begin
+		cu_state <= nx_state;
+	end
 end
 
+always_comb
+begin
+	case (cu_state)
+		idle:
+		begin
+			if (Data_Valid)
+			begin
+				nx_state = start; 
+			end
+			else 
+			begin
+				nx_state = cu_state;
+			end
+		end
+		start:
+		begin
+			nx_state = serial;
+		end
+	 	serial:
+		begin
+			nx_state = cu_state;
+		end 
+		parity:
+		begin
+			nx_state = stop;
+		end
+		stop:
+		begin
+			if (Data_Valid)
+			begin
+				nx_state = start;
+			end
+			else
+			begin
+				nx_state = idle;
+			end
+		end
+		default:
+		begin
+			nx_state = idle;
+		end
+	endcase
+end
+
+always_comb
+begin
+	case (cu_state)
+		idle:
+		begin
+			ser_en  = 1'b0;
+			busy 	= 1'b0;
+			mux_sel = 2'b01;
+		end
+		start:
+		begin
+			ser_en  = 1'b1;
+			busy 	= 1'b1;
+			mux_sel = 2'b00;
+		end
+		serial:
+		begin
+			ser_en  = 1'b1;
+			busy 	= 1'b1;
+			mux_sel = 2'b10;
+		end
+		parity:
+		begin
+			ser_en  = 1'b0;
+			busy 	= 1'b1;
+			mux_sel = 2'b11;
+		end
+		stop:
+		begin
+			ser_en  = 1'b0;
+			busy 	= 1'b1;
+			mux_sel = 2'b01;
+		end
+		default:
+		begin
+			ser_en  = 1'b0;
+			busy 	= 1'b0;
+			mux_sel = 2'b01;
+		end
+	endcase
+
+end
+
+
+
+/*always_ff @(negedge CLK or negedge RST) begin
+	if (RST) begin
+		state <= idle;
+	end else begin
+		case (state)
+			idle: begin
+				if (Data_Valid) begin
+					state <= start;
+				end else begin
+					state <= idle;
+				end
+			end
+			start: begin
+				state <= serial;
+			end
+			serial: begin
+				if (ser_done) begin
+					if (PAR_EN) begin
+						state <= parity;
+					end else begin
+						state <= stop;
+					end
+				end else begin
+					state <= serial;
+				end
+			end
+			parity: begin
+				state <= stop;
+			end
+			stop: begin
+				if (Data_Valid) begin
+					state <= start;
+				end else begin
+					state <= idle;
+				end
+			end
+			default: begin
+				state <= idle;
+			end
+		endcase
+	end
+end
+
+// output logic
 always_comb begin
-    nx_state = cu_state;
-
-    case (cu_state)
-
-        idle: begin
-            if (!RX_IN)
-                nx_state = start;
-        end
-
-        start: begin
-            if (edge_cnt == f_edge) begin
-                if (str_glitch)
-                    nx_state = idle;
-                else
-                    nx_state = deserializer;
-            end
-        end
-
-        deserializer: begin
-            if ((bit_cnt == 4'd8) && (edge_cnt == f_edge)) begin
-                if (PAR_EN)
-                    nx_state = parity;
-                else
-                    nx_state = stop;
-            end
-        end
-
-        parity: begin
-            if (edge_cnt == f_edge)
-                nx_state = stop;
-        end
-
-        stop: begin
-            if (edge_cnt == f_edge) begin
-                nx_state = idle;
-            end
-        end
-
-        default: nx_state = idle;
-    endcase
-end
-
-
-always_comb begin
-    data_samp_en = 1'b0;
-    deser_en     = 1'b0;
-    par_chk_en   = 1'b0;
-    str_chk_en   = 1'b0; 
-    stp_chk_en   = 1'b0;
-    enable       = 1'b0;
-    data_valid   = 0;
-    case (cu_state)
-        idle: begin
-            data_samp_en = 1'b1;
-            enable       = 1'b0;
-            par_ok       = 0;
-            stp_ok       = 0; 
-            
-        end
-        start: begin
-            str_chk_en   = 1'b1;
-            data_samp_en = 1'b1;
-            enable       = 1'b1;
-            par_ok       = 0;
-            stp_ok       = 0; 
-        end
-        deserializer: begin
-            deser_en     = 1'b1;
-            data_samp_en = 1'b1;
-            enable       = 1'b1;
-            par_ok       = 0;
-            stp_ok       = 0; 
-        end
-        parity: begin
-            par_chk_en   = 1'b1;
-            data_samp_en = 1'b1;
-            enable       = 1'b1;
-            par_ok       = par_err;
-            stp_ok       = 0; 
-        end
-        stop: begin
-            stp_chk_en   = 1'b1;
-            data_samp_en = 1'b1;
-            enable       = 1'b1;
-            par_ok       = par_ok;
-            stp_ok       = stp_err; 
-            if (PAR_EN && (edge_cnt == f_edge))
-                data_valid = !(par_ok & stp_ok);
-            else if (edge_cnt == f_edge)
-                data_valid = !stp_ok;
-            
-        end
-        default: begin
-            data_samp_en = 1'b0;
-            deser_en     = 1'b0;
-            par_chk_en   = 1'b0;
-            str_chk_en   = 1'b0; 
-            stp_chk_en   = 1'b0;
-            enable       = 1'b0;
-            par_ok       = 0;
-            stp_ok       = 0; 
-        end
-    endcase
-end
-
-
+	ser_en = 1'b0;
+	mux_sel = 2'b00;
+	busy = 1'b0;
+	
+	case (state)
+		idle: begin
+			ser_en = 1'b0;
+			mux_sel = 2'b01; //idle state == tx = stop bit;
+			busy = 1'b0;
+		end
+		start: begin
+			ser_en = 1'b0;
+			mux_sel = 2'b00; //start bit
+			busy = 1'b1;
+		end
+		serial: begin
+			ser_en = 1'b1;
+			mux_sel = 2'b10; //data bits
+			busy = 1'b1;
+		end
+		parity: begin
+			ser_en = 1'b0;
+			mux_sel = 2'b11; //parity bit
+			busy = 1'b1;
+		end
+		stop: begin
+			ser_en = 1'b0;
+			mux_sel = 2'b01; //stop bit
+			busy = 1'b1;
+		end
+		default: begin
+			ser_en = 1'b0;
+			mux_sel = 2'b01; //idle state
+			busy = 1'b0;
+		end
+	endcase
+end  */
 endmodule
